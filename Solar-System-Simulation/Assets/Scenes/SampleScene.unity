@@ -2039,6 +2039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SizeScale: 1
   TimeScale: 1
+  SolarSystem: {fileID: 1927458358}
 --- !u!4 &1642966703
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class SolarSystemManager : MonoBehaviour
 {
     public float SizeScale = 1;
     public float TimeScale = 1;
+    public GameObject SolarSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,6 @@ public class SolarSystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SolarSystem.transform.localScale = Vector3.one * SizeScale;
     }
 }

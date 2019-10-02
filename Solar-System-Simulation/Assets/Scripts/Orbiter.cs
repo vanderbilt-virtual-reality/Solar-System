@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GravitationalBody : MonoBehaviour
+public class Orbiter : MonoBehaviour
 {
-    public float mass;
-    public Vector3 initialVelocity;
-    public Quaternion rotation;
+    public double OrbitTime = 365; // in seconds
+    public Vector3 OrbitAxis = Vector3.up;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().velocity = initialVelocity;
+        
     }
 
     // Update is called once per frame

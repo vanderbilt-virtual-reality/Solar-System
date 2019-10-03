@@ -37,7 +37,7 @@ Malia has found some tutorial/competitions to learn from.
 
 ### Spaceship
 
-
+Adrian has reasearched a spaceship prefab.
 
 ## Author and Acknowledgements
 Student Group: Quinton Hoffman, Adrian Florea, Dayana Espinoza, Malia Latimer, and Viet Than

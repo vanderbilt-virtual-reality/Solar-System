@@ -2,7 +2,7 @@
 
 ## Method of Simulation
 
-## Star Particle
+### Star Particle
 
 <b>2 Oct 2019:</b> Setting up a Particle Effect that has a very large number for duration, speed of 0, rate of emission is as fast as possible, and we can create stationary white particles that, from the player's POV, look like stars. This is however, still random procedurally created. Need to amend to take in real star data.
 

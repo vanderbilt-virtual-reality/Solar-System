@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Fire
+=======
+  - Planet
+>>>>>>> upstream/master
   layers:
   - Default
   - TransparentFX

@@ -21,6 +21,8 @@ To access our Trello board: <a href="https://trello.com/invite/b/dn2gKOlD/d1af02
 
 The only <a href="https://thomaskole.wordpress.com/portfolio/how-to-generate-a-physically-accurate-star-field-in-unity-using-real-world-data/">guide</a> is outdated so Viet is trying to recreate that with the newer version of Unity.
 
+Read guide and progress log here: <a href="StarrySkyCreation.md">Starry Sky Creation: Working with Unity3D Particle Effect System</a>
+
 ## Quinton branch
 
 ### Solar system, gravity, travelling
@@ -37,7 +39,7 @@ Malia has found some tutorial/competitions to learn from.
 
 ### Spaceship
 
-
+Adrian has reasearched a spaceship prefab.
 
 ## Author and Acknowledgements
 Student Group: Quinton Hoffman, Adrian Florea, Dayana Espinoza, Malia Latimer, and Viet Than

@@ -121,14 +121,12 @@ public class CharacterMovement : MonoBehaviour
 
     private Camera m_Camera;
     private Vector2 m_Input;
-    private CharacterController m_CharacterController;
     private Vector3 m_MoveDir = Vector3.zero;
     private Vector3 m_OriginalCameraPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_CharacterController = GetComponent<CharacterController>();
         m_Camera = Camera.main;
         m_OriginalCameraPosition = m_Camera.transform.localPosition;
         m_MouseLook.Init(transform , m_Camera.transform);
@@ -147,13 +145,13 @@ public class CharacterMovement : MonoBehaviour
         // always move along the camera forward as it is the direction that it being aimed at
         Vector3 desiredMove = m_Camera.transform.forward*m_Input.y + m_Camera.transform.right*m_Input.x;
 
-    
+        speed *= FindObjectOfType<SolarSystemManager>().TimeScale;
 
         m_MoveDir.x = desiredMove.x*speed;
         m_MoveDir.z = desiredMove.z*speed;
         m_MoveDir.y = desiredMove.y*speed;
 
-        m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
+        transform.position = transform.position + m_MoveDir*Time.fixedDeltaTime;
 
         //UpdateCameraPosition(speed);
         m_MouseLook.UpdateCursorLock();
@@ -161,10 +159,10 @@ public class CharacterMovement : MonoBehaviour
 
 
     private void GetInput(out float speed)
-        {
-            // Read input
-            float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-            float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+    {
+        // Read input
+        float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+        float vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
 
 // #if !MOBILE_INPUT
@@ -172,19 +170,19 @@ public class CharacterMovement : MonoBehaviour
 //             // keep track of whether or not the character is walking or running
 //             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 // #endif
-            // set the desired speed to be walking or running
-            speed = m_MoveSpeed;
-            m_Input = new Vector2(horizontal, vertical);
+        // set the desired speed to be walking or running
+        speed = m_MoveSpeed;
+        m_Input = new Vector2(horizontal, vertical);
 
-            // normalize input if it exceeds 1 in combined length:
-            if (m_Input.sqrMagnitude > 1)
-            {
-                m_Input.Normalize();
-            }
-        }
-
-        private void RotateView()
+        // normalize input if it exceeds 1 in combined length:
+        if (m_Input.sqrMagnitude > 1)
         {
-            m_MouseLook.LookRotation (transform, m_Camera.transform);
+            m_Input.Normalize();
         }
+    }
+
+    private void RotateView()
+    {
+        m_MouseLook.LookRotation (transform, m_Camera.transform);
+    }
 }

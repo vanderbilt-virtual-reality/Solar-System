@@ -36,8 +36,11 @@ public class CharacterMovement : MonoBehaviour
             float yRot = CrossPlatformInputManager.GetAxis("Mouse X") * XSensitivity;
             float xRot = CrossPlatformInputManager.GetAxis("Mouse Y") * YSensitivity;
 
-            m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
-            m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);
+            // TODO: remove
+            m_CharacterTargetRot *= Quaternion.Euler (-xRot, yRot, 0f);
+            m_CameraTargetRot *= Quaternion.Euler (-xRot, yRot, 0f);
+            //m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
+            //m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);
 
             if(clampVerticalRotation)
                 m_CameraTargetRot = ClampRotationAroundXAxis (m_CameraTargetRot);
@@ -129,7 +132,9 @@ public class CharacterMovement : MonoBehaviour
     {
         m_Camera = Camera.main;
         m_OriginalCameraPosition = m_Camera.transform.localPosition;
-        m_MouseLook.Init(transform , m_Camera.transform);
+        // TODO: remove
+        m_MouseLook.Init(transform , transform);
+//        m_MouseLook.Init(transform , m_Camera.transform);
     }
 
     // Update is called once per frame
@@ -183,6 +188,8 @@ public class CharacterMovement : MonoBehaviour
 
     private void RotateView()
     {
-        m_MouseLook.LookRotation (transform, m_Camera.transform);
+        // TODO: remove
+        m_MouseLook.LookRotation (transform, transform);
+       // m_MouseLook.LookRotation (transform, m_Camera.transform);
     }
 }

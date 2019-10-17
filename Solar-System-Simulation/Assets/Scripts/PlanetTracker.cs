@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class PlanetTracker : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlanetTracker : MonoBehaviour
     [SerializeField] private double m_MinDistance = 0d;
     [SerializeField] private double m_MaxDistance = 1000d;
     [SerializeField] private int m_NumberToShow = 3;
+    public bool m_ShowByName = false; // TODO: implement this
    // [SerializeField] private int m_IndexToShow = 0; // show the first closest planet / obj
 
 
@@ -36,17 +38,6 @@ public class PlanetTracker : MonoBehaviour
         m_objects = objsList.ToArray();
 
         updateList();
-        
-        // TODO: sort objects based on distance from user
-        Array.Sort(m_objects, (x, y) => {
-            if (x.distance < y.distance) {
-                return -1;
-            } else if (x.distance > y.distance) {
-                return 1;
-            } else {
-                return 1;
-            }
-        });
     }
 
     // Update is called once per frame
@@ -64,38 +55,40 @@ public class PlanetTracker : MonoBehaviour
 
             RaycastHit hit;
             Vector3 direction = Vector3.Normalize(o.gameObject.transform.position - transform.position);
-            float distance = 100; // TODO: this should be limited even more
 
-            if (Physics.Raycast(transform.position, direction, out hit, distance)) {
-                if (hit.collider.tag == "PlanetIntersector" && numberShown++ < m_NumberToShow) {
-                    //Debug.Log(hit.point);
+            if (Physics.Raycast(transform.position, direction, out hit, (int) m_MaxDistance)) {
+                if (hit.collider.tag == "PlanetIntersector" && numberShown < m_NumberToShow) {
                     Debug.DrawRay(transform.position, direction * 10);
+
                     // GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                     // sphere.transform.position = hit.point;
                     // sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     
                     hits.Add(hit);
                     names.Add(o.gameObject.name);
-                    // TODO: draw on canvas at this location
+                    ++numberShown;
                 }
    
             }
         }
-
+        
         drawOnWindshield.drawPointsWithName(hits, names);
     }
 
     void updateList() {
+        // update distance
         for (int i = 0; i < m_objects.Length; ++i) {
             m_objects[i].distance = Vector3.Magnitude(transform.position - m_objects[i].gameObject.transform.position);
         }
 
-        for (int i = 1; i < m_objects.Length; ++i) {
-            if (m_objects[i].distance < m_objects[i-1].distance) {
-                Obj temp = m_objects[i];
-                m_objects[i] = m_objects[i-1];
-                m_objects[i - 1] = temp;
+        Array.Sort(m_objects, (x, y) => {
+            if (x.distance < y.distance) {
+                return -1;
+            } else if (x.distance > y.distance) {
+                return 1;
+            } else {
+                return 1;
             }
-        }
+        });
     }
 }

@@ -45,11 +45,17 @@ public class DrawOnWindshield : MonoBehaviour
         // show markers and update for each hit
         for (int i = 0; i < hits.Count; ++i) {
             RaycastHit hit = hits[i];
-            enabled.Add(names[i]);
             Vector3 pos = transform.InverseTransformPoint(hit.point);
             pos.y += 200; // TODO: scale this depending on how close the object is? Ex: 200 / distance
-            Debug.Log(pos);
-            GameObject marker = markers.ContainsKey(names[i]) ? markers[names[i]] : markers["Other"];
+            GameObject marker;
+            if (markers.ContainsKey(names[i])) {
+                enabled.Add(names[i]);
+                marker = markers[names[i]];
+            } else {
+                enabled.Add("Other");
+                marker = markers["Other"];
+                marker.transform.Find("Text").GetComponent<Text>().text = names[i];
+            }
             marker.GetComponent<RectTransform>().anchoredPosition = pos;
             setEnabled(marker, true);
         }

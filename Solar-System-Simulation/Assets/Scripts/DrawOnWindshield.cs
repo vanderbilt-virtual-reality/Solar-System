@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class DrawOnWindshield : MonoBehaviour
 {
-    private GameObject baseMarker;
+    [SerializeField] private GameObject baseMarker;
+
+    private static string MarkerName = "Marker";
+    private static string MainTextName = "MainText";
+    private static string SubTextName = "SubText";
+
     private Dictionary<string, GameObject> markers = new Dictionary<string, GameObject>();
 
     private Dictionary<string, Color> nameColorMap = new Dictionary<string, Color>();
@@ -13,7 +18,7 @@ public class DrawOnWindshield : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        baseMarker = transform.Find("BaseMarker").gameObject;
+        
         nameColorMap.Add("Sun", Color.yellow);
         nameColorMap.Add("Mercury", Color.magenta);
         nameColorMap.Add("Venus", new Color(109f / 255f, 70f / 255f, 29f / 255f, 1f)); // brown
@@ -30,8 +35,8 @@ public class DrawOnWindshield : MonoBehaviour
         foreach (var pair in nameColorMap) {
             GameObject newMarker = Instantiate(baseMarker, transform);
             newMarker.name = pair.Key;
-            newMarker.transform.Find("Marker").GetComponent<RawImage>().color = pair.Value;
-            Text text = newMarker.transform.Find("Text").GetComponent<Text>();
+            newMarker.transform.Find(MarkerName).GetComponent<RawImage>().color = pair.Value;
+            Text text = newMarker.transform.Find(MainTextName).GetComponent<Text>();
             text.color = pair.Value;
             text.text = pair.Key;
             markers.Add(pair.Key, newMarker);
@@ -54,7 +59,7 @@ public class DrawOnWindshield : MonoBehaviour
             } else {
                 enabled.Add("Other");
                 marker = markers["Other"];
-                marker.transform.Find("Text").GetComponent<Text>().text = names[i];
+                marker.transform.Find(MainTextName).GetComponent<Text>().text = names[i];
             }
             marker.GetComponent<RectTransform>().anchoredPosition = pos;
             setEnabled(marker, true);
@@ -69,7 +74,7 @@ public class DrawOnWindshield : MonoBehaviour
     }
 
     void setEnabled(GameObject marker, bool enabled) {
-        marker.transform.Find("Marker").GetComponent<RawImage>().enabled = enabled;
-        marker.transform.Find("Text").GetComponent<Text>().enabled = enabled;
+        marker.transform.Find(MarkerName).GetComponent<RawImage>().enabled = enabled;
+        marker.transform.Find(MainTextName).GetComponent<Text>().enabled = enabled;
     }
 }

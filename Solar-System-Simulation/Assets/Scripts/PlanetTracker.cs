@@ -12,12 +12,18 @@ public class PlanetTracker : MonoBehaviour
         public GameObject gameObject;
         public double distance;
     }
+
+    public struct HitObj {
+        public RaycastHit hit;
+        public string name;
+        public double distance;
+    }
     // TODO:
     // Get list of planet objects
     private Obj[] m_objects = {};
 
-    [SerializeField] private double m_MinDistance = 0d;
-    [SerializeField] private double m_MaxDistance = 1000d;
+    // [SerializeField] private double m_MinDistance = 0d;
+    // [SerializeField] private double m_MaxDistance = 1000d;
     [SerializeField] private int m_NumberToShow = 3;
 
     public String[] m_NamesToTrack;
@@ -66,21 +72,18 @@ public class PlanetTracker : MonoBehaviour
     }
 
     void trackPlanets(Obj[] planets) {
-        List<RaycastHit> hits = new List<RaycastHit>();
-        List<string> names = new List<string>();
-
-        int numberShown = 0; // TODO
+        List<HitObj> hitObjs = new List<HitObj>();
 
         foreach(Obj o in planets)
         {
-            if (numberShown == m_NumberToShow) break;
 
             RaycastHit hit;
             Vector3 direction = Vector3.Normalize(o.gameObject.transform.position - transform.position);
 
-            if (Physics.Raycast(transform.position, direction, out hit, (int)m_MaxDistance))
+            // if (Physics.Raycast(transform.position, direction, out hit, (int)m_MaxDistance))
+            if (Physics.Raycast(transform.position, direction, out hit))
             {
-                if (hit.collider.tag == "PlanetIntersector" && numberShown < m_NumberToShow)
+                if (hit.collider.tag == "PlanetIntersector")
                 {
                     Debug.DrawRay(transform.position, direction * 10);
 
@@ -88,14 +91,12 @@ public class PlanetTracker : MonoBehaviour
                     // sphere.transform.position = hit.point;
                     // sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
-                    hits.Add(hit);
-                    names.Add(o.gameObject.name);
-                    ++numberShown;
+                    hitObjs.Add(new HitObj {hit=hit, name=o.gameObject.name, distance=o.distance});
                 }
 
             }
         }
 
-        drawOnWindshield.drawPointsWithName(hits, names);
+        drawOnWindshield.drawPointsWithName(hitObjs);
     }
 }

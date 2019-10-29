@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class DrawOnWindshield : MonoBehaviour
 {
     [SerializeField] private GameObject baseMarker;
+
+    private GameObject otherBaseMarker;
 
     private static string MarkerName = "Marker";
     private static string MainTextName = "MainText";
     private static string SubTextName = "SubText";
 
     private Dictionary<string, GameObject> markers = new Dictionary<string, GameObject>();
+
+    private Dictionary<string, GameObject> otherMarkers = new Dictionary<string, GameObject>();
 
     private Dictionary<string, Color> nameColorMap = new Dictionary<string, Color>();
 
@@ -29,45 +34,80 @@ public class DrawOnWindshield : MonoBehaviour
         nameColorMap.Add("Uranus", Color.cyan);
         nameColorMap.Add("Neptune", Color.blue);
         nameColorMap.Add("Pluto", new Color(1f, 0f, 1f, 1f)); // purple
-        nameColorMap.Add("Other", Color.grey);
+        //nameColorMap.Add("Other", Color.grey);
 
 
         foreach (var pair in nameColorMap) {
             GameObject newMarker = Instantiate(baseMarker, transform);
             newMarker.name = pair.Key;
             newMarker.transform.Find(MarkerName).GetComponent<RawImage>().color = pair.Value;
-            Text text = newMarker.transform.Find(MainTextName).GetComponent<Text>();
-            text.color = pair.Value;
-            text.text = pair.Key;
+            Text mainText = newMarker.transform.Find(MainTextName).GetComponent<Text>();
+            mainText.color = pair.Value;
+            mainText.text = pair.Key;
+            Text subText = newMarker.transform.Find(SubTextName).GetComponent<Text>();
+            subText.color = pair.Value;
+            subText.text = "0";
             markers.Add(pair.Key, newMarker);
-        }        
+        }
+
+        otherBaseMarker = Instantiate(baseMarker, transform);
+        otherBaseMarker.name = "OtherBase";
+        otherBaseMarker.transform.Find(MarkerName).GetComponent<RawImage>().color = Color.grey;
+        Text otherMainText = otherBaseMarker.transform.Find(MainTextName).GetComponent<Text>();
+        otherMainText.color = Color.grey;
+        otherMainText.text = "Other";
+        Text otherSubText = otherBaseMarker.transform.Find(SubTextName).GetComponent<Text>();
+        otherSubText.color = Color.grey;
+        otherSubText.text = "0";
     }
 
 
-    public void drawPointsWithName(List<RaycastHit> hits, List<string> names) {
+    public void drawPointsWithName(List<PlanetTracker.HitObj> hitObjs) {
         List<string> enabled = new List<string>();
         // hits is sorted from closes to farthest
         // show markers and update for each hit
-        for (int i = 0; i < hits.Count; ++i) {
-            RaycastHit hit = hits[i];
-            Vector3 pos = transform.InverseTransformPoint(hit.point);
+        foreach(PlanetTracker.HitObj hitObj in hitObjs)
+        {
+            Vector3 pos = transform.InverseTransformPoint(hitObj.hit.point);
             pos.y += 200; // TODO: scale this depending on how close the object is? Ex: 200 / distance
             GameObject marker;
-            if (markers.ContainsKey(names[i])) {
-                enabled.Add(names[i]);
-                marker = markers[names[i]];
-            } else {
-                enabled.Add("Other");
-                marker = markers["Other"];
-                marker.transform.Find(MainTextName).GetComponent<Text>().text = names[i];
+            if (markers.ContainsKey(hitObj.name)) 
+            {
+                marker = markers[hitObj.name];
             }
+
+            else 
+            {
+                // create a other marker based on the otherBaseMarker
+                if (!otherMarkers.ContainsKey(hitObj.name))
+                {
+                    var newMarker = Instantiate(otherBaseMarker, transform);
+                    newMarker.transform.Find(MainTextName).GetComponent<Text>().text = hitObj.name;
+                    newMarker.name = hitObj.name;
+                    otherMarkers.Add(hitObj.name, newMarker);
+                }
+
+                marker = otherMarkers[hitObj.name];
+            }
+
+            enabled.Add(hitObj.name);
             marker.GetComponent<RectTransform>().anchoredPosition = pos;
+            marker.transform.Find(SubTextName).GetComponent<Text>().text = Math.Round(hitObj.distance, 2).ToString() + "m";
             setEnabled(marker, true);
         }
 
         // don't show markers not supposed to be shown
-        foreach (var marker in markers) {
+        foreach (var marker in markers)
+        {
             if (!enabled.Contains(marker.Key)) {
+                setEnabled(marker.Value, false);
+            }
+        }
+
+        foreach (var marker in otherMarkers)
+        {
+            if (!enabled.Contains(marker.Key))
+            {
                 setEnabled(marker.Value, false);
             }
         }
@@ -76,5 +116,6 @@ public class DrawOnWindshield : MonoBehaviour
     void setEnabled(GameObject marker, bool enabled) {
         marker.transform.Find(MarkerName).GetComponent<RawImage>().enabled = enabled;
         marker.transform.Find(MainTextName).GetComponent<Text>().enabled = enabled;
+        marker.transform.Find(SubTextName).GetComponent<Text>().enabled = enabled;
     }
 }

@@ -332,7 +332,9 @@ MonoBehaviour:
   m_MinDistance: 0
   m_MaxDistance: 1000
   m_NumberToShow: 3
-  m_ShowByName: 0
+  m_NamesToTrack:
+  - Sun
+  m_ShowByName: 1
 --- !u!1 &252015571
 GameObject:
   m_ObjectHideFlags: 0

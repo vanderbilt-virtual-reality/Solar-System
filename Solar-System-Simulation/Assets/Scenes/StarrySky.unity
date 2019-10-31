@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 810391303}
   - component: {fileID: 810391302}
   - component: {fileID: 810391301}
+  - component: {fileID: 810391304}
   m_Layer: 31
   m_Name: Particle System
   m_TagString: Untagged
@@ -400,8 +401,8 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
-  prewarm: 1
+  looping: 0
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -5058,6 +5059,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &810391304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810391300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eabdace7e2da5b64bbb3bd966061959a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxParticles: 1000
+  starCSV: {fileID: 4900000, guid: 997af5f5dbae9b14d86c30ceeb8ada3d, type: 3}
 --- !u!1 &927981052
 GameObject:
   m_ObjectHideFlags: 0

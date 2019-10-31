@@ -92,7 +92,7 @@ public class DrawOnWindshield : MonoBehaviour
 
             enabled.Add(hitObj.name);
             marker.GetComponent<RectTransform>().anchoredPosition = pos;
-            marker.transform.Find(SubTextName).GetComponent<Text>().text = Math.Round(hitObj.distance, 2).ToString() + "m";
+            marker.transform.Find(SubTextName).GetComponent<Text>().text = $"{Math.Round(hitObj.distance, 3):E3}m";
             setEnabled(marker, true);
         }
 

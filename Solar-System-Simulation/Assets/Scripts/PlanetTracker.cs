@@ -8,6 +8,12 @@ public class PlanetTracker : MonoBehaviour
 {
     private DrawOnWindshield drawOnWindshield;
 
+    private Obj[] m_objects = { };
+
+    // [SerializeField] private double m_MinDistance = 0d;
+    // [SerializeField] private double m_MaxDistance = 1000d;
+    [SerializeField] private int m_NumberToShow = 3;
+
     private struct Obj {
         public GameObject gameObject;
         public double distance;
@@ -18,13 +24,6 @@ public class PlanetTracker : MonoBehaviour
         public string name;
         public double distance;
     }
-    // TODO:
-    // Get list of planet objects
-    private Obj[] m_objects = {};
-
-    // [SerializeField] private double m_MinDistance = 0d;
-    // [SerializeField] private double m_MaxDistance = 1000d;
-    [SerializeField] private int m_NumberToShow = 3;
 
     public String[] m_NamesToTrack;
     public bool m_ShowByName = false; // TODO: implement this

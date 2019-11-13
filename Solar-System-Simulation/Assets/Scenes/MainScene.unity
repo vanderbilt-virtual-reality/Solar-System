@@ -662,6 +662,11 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.w
       value: 4e-45
       objectReference: {fileID: 0}
+    - target: {fileID: -5594373079560078625, guid: 56f809878327562438a5cbcc729ff32b,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5091746095773038588, guid: 56f809878327562438a5cbcc729ff32b,
         type: 3}
       propertyPath: m_Enabled
@@ -3898,6 +3903,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationTime: 57996
+--- !u!1 &2107651715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7450963122900413727, guid: 56f809878327562438a5cbcc729ff32b,
+    type: 3}
+  m_PrefabInstance: {fileID: 143520513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2107651719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107651715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3722a12320c0345855f9ca2c2b8a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReferenceObject: {fileID: 0}
 --- !u!1 &2119013483 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3898073410806939987, guid: 1baf19592466bb84496189b837c80eee,

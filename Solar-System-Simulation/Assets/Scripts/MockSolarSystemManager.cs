@@ -24,7 +24,7 @@ public class MockSolarSystemManager : MonoBehaviour
 
     private double[] planet_distances = {0, .005791, .01082, .01496, .02279, .07785, .1434, .2871, .4495, .5906};
     
-    private double scaleFactor = 10000000000000;
+    [SerializeField] private double scaleFactor = 10000000000000;
     public Dictionary<string, bool> SelectedPlanets = new Dictionary<string, bool>();
     // TODO: (kinda done--need to fix the direction and test this when scaling is fixed)
     // In order to map the current position of the ship to the minimap correctly
@@ -75,10 +75,22 @@ public class MockSolarSystemManager : MonoBehaviour
 
             GameObject o = child.gameObject.GetComponent<MockOrbiter>().ReferenceObject;
 
-            Vector3 newVec = o.transform.position * (float) Convert.ToDouble(scale_dict[child.gameObject.name]) / (10000000000000);
+            Orbiter orbiter = o.GetComponent<Orbiter>();
+
+            if (orbiter != null)
+            {
+                Vector3d newVec = orbiter.mPosition * Convert.ToDouble(scale_dict[child.gameObject.name]) / (scaleFactor);
+                Debug.Log(newVec);
+                child.localPosition = new Vector3((float) newVec.z, (float) newVec.x, (float) newVec.y);
+            }
+
+            // Vector3 newVec = o.transform.position * (float) Convert.ToDouble(scale_dict[child.gameObject.name]) / (10000000000000);
+
+            // child.localPosition = new Vector3(newVec.z, newVec.x, newVec.y);
+            
 
 
-            child.localPosition = new Vector3(newVec.z, newVec.x, newVec.y);
+
             //Vector3 orbitAxis = transform.TransformDirection(sunTransform.localRotation * Vector3.forward);
 
             // Debug.Log(MainCamera.transform.localRotation);

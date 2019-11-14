@@ -15,7 +15,7 @@ public class MockOrbiter : MonoBehaviour
             ReferenceObject = SolarSystemTransform.Find(searchString).gameObject;
         } else
         {
-            ReferenceObject = SolarSystemTransform.Find(searchString + "System").Find(searchString).gameObject;
+            ReferenceObject = SolarSystemTransform.Find(searchString + "System").gameObject;
         }
     }
 }

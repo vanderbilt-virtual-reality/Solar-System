@@ -241,6 +241,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 28800
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 0
 --- !u!1001 &8754923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -366,6 +369,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 365
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 0
 --- !u!114 &8754927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +386,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 233280000
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 0
 --- !u!1 &62988987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3898073410806939987, guid: 1baf19592466bb84496189b837c80eee,
@@ -1031,6 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734c5b4d38bb2c54e889aee4ded07d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleFactor: 10000000000000
 --- !u!1 &240679953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7450963122900413727, guid: 057a338a11913b540924856884e03d57,
@@ -1198,6 +1208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 2649024000
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 2871000000000
 --- !u!4 &325512681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 057a338a11913b540924856884e03d57,
@@ -1263,6 +1276,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 378432000
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 778500000000
 --- !u!1001 &392764607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1659,6 +1675,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 59356800
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 227900000000
 --- !u!1 &617424443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,7 +1694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &617424444
 Transform:
   m_ObjectHideFlags: 0
@@ -1762,6 +1781,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 7820928000
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 5906000000000
 --- !u!1 &661233755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +1935,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 31536000
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 149600000000
 --- !u!1 &724161112
 GameObject:
   m_ObjectHideFlags: 0
@@ -8357,6 +8382,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 7603200
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 57910000000
 --- !u!1 &1289880146
 GameObject:
   m_ObjectHideFlags: 0
@@ -8416,6 +8444,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 19440000
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 108200000000
 --- !u!1 &1302514353
 GameObject:
   m_ObjectHideFlags: 0
@@ -8608,6 +8639,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 5203440000
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 4495000000000
 --- !u!1 &1642966701
 GameObject:
   m_ObjectHideFlags: 0
@@ -8714,6 +8748,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 914544000
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 0
+  Y: 0
+  Z: 1434000000000
 --- !u!1001 &1648042784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9928,6 +9965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734c5b4d38bb2c54e889aee4ded07d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleFactor: 10000000000000
 --- !u!1001 &2145239237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10048,6 +10086,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OrbitTime: 2332800
   OrbitAxis: {x: 0, y: 1, z: 0}
+  X: 384400000
+  Y: 0
+  Z: 0
 --- !u!1001 &3898073410844398904
 PrefabInstance:
   m_ObjectHideFlags: 0

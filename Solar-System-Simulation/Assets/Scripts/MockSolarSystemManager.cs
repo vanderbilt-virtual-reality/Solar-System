@@ -10,16 +10,16 @@ public class MockSolarSystemManager : MonoBehaviour
     private Transform Character;
     private PlanetTracker m_PlanetTracker;
     private OrderedDictionary scale_dict = new OrderedDictionary(){
-            {"MockSun", 1},
-            {"MockMercury", 3},
-            {"MockVenus", 3},
-            {"MockEarth", 3},
-            {"MockMars", 3},
-            {"MockJupiter", 1.15f}, 
-            {"MockSaturn", .8f},
-            {"MockUranus", 0.5f},
-            {"MockNeptune", 0.38f},
-            {"MockPluto", .336f}
+            {"MockSun", .01f},
+            {"MockMercury", .03f},
+            {"MockVenus", .03f},
+            {"MockEarth", .03f},
+            {"MockMars", .03f},
+            {"MockJupiter", .0115f}, 
+            {"MockSaturn", .008f},
+            {"MockUranus", 0.005f},
+            {"MockNeptune", 0.0038f},
+            {"MockPluto", .00336f}
         };
 
     private double[] planet_distances = {0, .005791, .01082, .01496, .02279, .07785, .1434, .2871, .4495, .5906};
@@ -63,7 +63,7 @@ public class MockSolarSystemManager : MonoBehaviour
             }
         }
 
-        Debug.Log($"Character pos:{Character.position}, shipPos:{shipPos}");
+        // Debug.Log($"Character pos:{Character.position}, shipPos:{shipPos}");
         
         ship.localPosition = new Vector3(shipPos.z, shipPos.x, shipPos.y);
 
@@ -93,24 +93,23 @@ public class MockSolarSystemManager : MonoBehaviour
     void Update()
     {
         // TODO: REMOVE
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown("0"))
         {
             SelectedPlanets["MockSun"] = !SelectedPlanets["MockSun"];
             updateSelectedPlanets();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown("1"))
         {
             SelectedPlanets["MockMercury"] = !SelectedPlanets["MockMercury"];
             updateSelectedPlanets();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown("2"))
         {
             SelectedPlanets["MockVenus"] = !SelectedPlanets["MockVenus"];
             updateSelectedPlanets();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown("3"))
         {
-            Debug.Log("HERE");
             SelectedPlanets["MockEarth"] = !SelectedPlanets["MockEarth"];
             updateSelectedPlanets();
         }

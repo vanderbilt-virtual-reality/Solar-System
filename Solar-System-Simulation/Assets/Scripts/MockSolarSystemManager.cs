@@ -80,7 +80,6 @@ public class MockSolarSystemManager : MonoBehaviour
             if (orbiter != null)
             {
                 Vector3d newVec = orbiter.mPosition * Convert.ToDouble(scale_dict[child.gameObject.name]) / (scaleFactor);
-                Debug.Log(newVec);
                 child.localPosition = new Vector3((float) newVec.z, (float) newVec.x, (float) newVec.y);
             }
 

@@ -15,7 +15,8 @@ public class PlanetTracker : MonoBehaviour
     [SerializeField] private int m_NumberToShow = 3;
 
     private struct Obj {
-        public GameObject gameObject;
+        public string name;
+        public Orbiter orbiter;
         public double distance;
     }
 
@@ -39,7 +40,11 @@ public class PlanetTracker : MonoBehaviour
         List<Obj> objsList = new List<Obj>();
 
         foreach (GameObject gm in gmArr) {
-            objsList.Add(new Obj {gameObject=gm, distance=0});
+            Orbiter o = gm.transform.parent.gameObject.GetComponent<Orbiter>();
+            if (o != null)
+            {
+                objsList.Add(new Obj {name=gm.name, orbiter=o, distance=0});
+            }
         }
 
         m_objects = objsList.ToArray();
@@ -54,7 +59,7 @@ public class PlanetTracker : MonoBehaviour
 
         if (m_ShowByName)
         {
-            trackPlanets(m_objects.Where(obj => m_NamesToTrack.Contains(obj.gameObject.name)).ToArray());
+            trackPlanets(m_objects.Where(obj => m_NamesToTrack.Contains(obj.name)).ToArray());
         }
         else
         {
@@ -66,7 +71,7 @@ public class PlanetTracker : MonoBehaviour
     private void updateDistances() {
         // update distance
         for (int i = 0; i < m_objects.Length; ++i) {
-            m_objects[i].distance = Vector3.Magnitude(transform.position - m_objects[i].gameObject.transform.position);
+            m_objects[i].distance = Vector3d.Magnitude(new Vector3d(transform.position) - m_objects[i].orbiter.mPosition);
         }
     }
 
@@ -75,13 +80,16 @@ public class PlanetTracker : MonoBehaviour
 
         foreach(Obj o in planets)
         {
-
+            Debug.Log(o.orbiter.gameObject.name);
             RaycastHit hit;
-            Vector3 direction = Vector3.Normalize(o.gameObject.transform.position - transform.position);
+            Vector3d d = Vector3d.Normalize(o.orbiter.mPosition - new Vector3d(transform.position));
+            Vector3 direction = new Vector3((float) d.x, (float) d.y, (float) d.z);
+            Debug.DrawRay(transform.position, direction * 10);
 
             // if (Physics.Raycast(transform.position, direction, out hit, (int)m_MaxDistance))
             if (Physics.Raycast(transform.position, direction, out hit))
             {
+                
                 if (hit.collider.tag == "PlanetIntersector")
                 {
                     Debug.DrawRay(transform.position, direction * 10);
@@ -90,7 +98,7 @@ public class PlanetTracker : MonoBehaviour
                     // sphere.transform.position = hit.point;
                     // sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
-                    hitObjs.Add(new HitObj {hit=hit, name=o.gameObject.name, distance=o.distance});
+                    hitObjs.Add(new HitObj {hit=hit, name=o.name, distance=o.distance});
                 }
 
             }

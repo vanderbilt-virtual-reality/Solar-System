@@ -71,7 +71,7 @@ public class PlanetTracker : MonoBehaviour
     private void updateDistances() {
         // update distance
         for (int i = 0; i < m_objects.Length; ++i) {
-            m_objects[i].distance = Vector3d.Magnitude(new Vector3d(transform.position) - m_objects[i].orbiter.mPosition);
+            m_objects[i].distance = Vector3d.Magnitude(/*new Vector3d(transform.position) - */m_objects[i].orbiter.mScaledPosition);
         }
     }
 
@@ -80,9 +80,9 @@ public class PlanetTracker : MonoBehaviour
 
         foreach(Obj o in planets)
         {
-            Debug.Log(o.orbiter.gameObject.name);
+            //Debug.Log(o.orbiter.gameObject.name);
             RaycastHit hit;
-            Vector3d d = Vector3d.Normalize(o.orbiter.mPosition - new Vector3d(transform.position));
+            Vector3d d = Vector3d.Normalize(o.orbiter.mScaledPosition - new Vector3d(transform.position));
             Vector3 direction = new Vector3((float) d.x, (float) d.y, (float) d.z);
             Debug.DrawRay(transform.position, direction * 10);
 

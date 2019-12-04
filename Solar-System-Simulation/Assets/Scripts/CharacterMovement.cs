@@ -119,6 +119,9 @@ public class CharacterMovement : MonoBehaviour
 
     }
 
+    public Vector3d mPosition;
+    public Vector3d mScaledPosition;
+
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private MouseLook m_MouseLook;
 
@@ -135,6 +138,7 @@ public class CharacterMovement : MonoBehaviour
         // TODO: remove
         m_MouseLook.Init(transform , transform);
 //        m_MouseLook.Init(transform , m_Camera.transform);
+        mPosition = new Vector3d(transform.position);
     }
 
     // Update is called once per frame
@@ -156,7 +160,10 @@ public class CharacterMovement : MonoBehaviour
         m_MoveDir.z = desiredMove.z*speed;
         m_MoveDir.y = desiredMove.y*speed;
 
-        transform.position = transform.position + m_MoveDir*Time.fixedDeltaTime;
+        mPosition = mPosition + new Vector3d(m_MoveDir) * Time.fixedDeltaTime;
+        //transform.position = transform.position + m_MoveDir*Time.fixedDeltaTime;
+
+        Debug.Log(mPosition);
 
         //UpdateCameraPosition(speed);
         m_MouseLook.UpdateCursorLock();

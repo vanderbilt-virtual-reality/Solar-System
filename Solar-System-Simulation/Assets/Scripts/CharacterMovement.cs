@@ -168,7 +168,6 @@ public class CharacterMovement : MonoBehaviour
         mPosition = mPosition + new Vector3d(m_MoveDir) * Time.fixedDeltaTime;
         //transform.position = transform.position + m_MoveDir*Time.fixedDeltaTime;
 
-        Debug.Log($"character pos: {mPosition}");
 
         //UpdateCameraPosition(speed);
         //m_MouseLook.UpdateCursorLock();

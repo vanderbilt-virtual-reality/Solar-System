@@ -134,13 +134,16 @@ public class MockSolarSystemManager : MonoBehaviour
     {
         foreach(KeyValuePair<string, bool> selectedPlanet in SelectedPlanets)
         {
-            Material mat = transform.Find(selectedPlanet.Key).gameObject.GetComponent<MeshRenderer>().material;
+            MeshRenderer meshRenderer = transform.Find(selectedPlanet.Key).gameObject.GetComponent<MeshRenderer>();
+            Material mat = meshRenderer.material;
             bool enabled = mat.IsKeywordEnabled("_EMISSION");
 
             // Turn on
             if (selectedPlanet.Value && !enabled)
             {
                 mat.EnableKeyword("_EMISSION");
+                meshRenderer.enabled = true;
+
 
                 List<string> temp = m_PlanetTracker.m_NamesToTrack.ToList();
                 if (!temp.Contains(selectedPlanet.Key.Substring(4)))
@@ -153,6 +156,7 @@ public class MockSolarSystemManager : MonoBehaviour
             else if (!selectedPlanet.Value && enabled)
             {
                 mat.DisableKeyword("_EMISSION");
+                meshRenderer.enabled = false;
 
                 List<string> temp = m_PlanetTracker.m_NamesToTrack.ToList();
                 if (temp.Contains(selectedPlanet.Key.Substring(4)))

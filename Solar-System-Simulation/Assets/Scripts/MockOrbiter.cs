@@ -24,6 +24,7 @@ public class MockOrbiter : MonoBehaviour
         // other.gameObject.name == RightHandAnchor || LeftHandAnchor
         if (other.gameObject.name == "RightHandPointerCollider" || other.gameObject.name == "LeftHandPointerCollider")
         {
+            Debug.Log($"here2: {other.gameObject.name}, {gameObject.name}");
             MockSolarSystemManager manager = transform.parent.GetComponent<MockSolarSystemManager>();
             manager.SelectedPlanets[gameObject.name] = !manager.SelectedPlanets[gameObject.name];
             manager.updateSelectedPlanets();

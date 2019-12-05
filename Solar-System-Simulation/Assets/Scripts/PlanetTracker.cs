@@ -45,6 +45,10 @@ public class PlanetTracker : MonoBehaviour
             {
                 objsList.Add(new Obj {name=gm.name, orbiter=o, distance=0});
             }
+            else if (gm.name == "Sun")
+            {
+                //objsList.Add(new Obj { name = gm.name, orbiter = gm.GetComponent<Orbiter>(), distance = 0 });
+            }
         }
 
         m_objects = objsList.ToArray();

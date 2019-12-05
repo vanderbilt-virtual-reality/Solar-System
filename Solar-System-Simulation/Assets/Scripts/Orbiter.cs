@@ -37,10 +37,11 @@ public class Orbiter : MonoBehaviour
 
             //CharacterMovement.m_MoveSpeed *= (float) ratio;
 
-            float sizeIncrease = (float) Mathd.Lerp(1, 2.5, 1-ratio);
+            float sizeIncrease = (float) Mathd.Lerp(0, 2.5, 1-ratio);
             if (gameObject.name == "Sun")
             {
-                transform.localScale = transform.localScale * planetSizeScale * sizeIncrease;
+
+                transform.localScale = transform.localScale * planetSizeScale * sizeIncrease * 10000000;
             }
             else
             {

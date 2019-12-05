@@ -1912,29 +1912,6 @@ MonoBehaviour:
   X: 0
   Y: 0
   Z: 778500000000
---- !u!1 &362816438 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd,
-    type: 3}
-  m_PrefabInstance: {fileID: 999144250}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &362816443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362816438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7bbfc01965d3d245b208a7e600277b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggleButton: 256
-  startPos: {fileID: 0}
-  endPos: {fileID: 0}
-  speed: 1
-  duration: 3
 --- !u!1001 &392764607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8920,7 +8897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: EnableRotation
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: SnapRotation

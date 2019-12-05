@@ -69,7 +69,14 @@ public class DrawOnWindshield : MonoBehaviour
         foreach(PlanetTracker.HitObj hitObj in hitObjs)
         {
             Vector3 pos = transform.InverseTransformPoint(hitObj.hit.point);
-            pos.y += 200; // TODO: scale this depending on how close the object is? Ex: 200 / distance
+
+            float verticalShift = 50; // shift up to see planet
+
+            if (hitObj.distance < 100000000)
+            {
+                verticalShift += (float) Mathd.Lerp(0, 50, 1 - ((hitObj.distance - 100000) / 100000000));
+            }
+            pos.y += verticalShift; // TODO: scale this depending on how close the object is? Ex: 200 / distance
             GameObject marker;
             if (markers.ContainsKey(hitObj.name)) 
             {

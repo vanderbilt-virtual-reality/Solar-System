@@ -198,13 +198,16 @@ public class CharacterMovement : MonoBehaviour
         // TODO: remove
         //m_MouseLook.LookRotation (transform, transform);
         // m_MouseLook.LookRotation (transform, m_Camera.transform);
-        //if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft))
-        //{
-        //    transform.Rotate(0.0f, -0.3f, 0.0f, Space.World);
-        //}
-        //else if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight))
-        //{
-        //    transform.Rotate(0.0f, 0.3f, 0.0f, Space.World);
-        //}
+
+
+
+        if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft))
+        {
+            transform.Rotate(0.0f, -0.3f, 0.0f, Space.World);
+        }
+        else if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight))
+        {
+            transform.Rotate(0.0f, 0.3f, 0.0f, Space.World);
+        }
     }
 }

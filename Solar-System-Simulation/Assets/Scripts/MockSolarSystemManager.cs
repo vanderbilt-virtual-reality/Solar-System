@@ -71,7 +71,6 @@ public class MockSolarSystemManager : MonoBehaviour
         Transform sunTransform = transform.Find("MockSun");
         foreach (Transform child in transform)
         {
-            Debug.Log(child.gameObject.name);
             if (child.gameObject.name.ToLower() == "ship") continue;
 
             GameObject o = child.gameObject.GetComponent<MockOrbiter>().ReferenceObject;
@@ -80,7 +79,6 @@ public class MockSolarSystemManager : MonoBehaviour
 
             if (orbiter != null)
             {
-                Debug.Log($"orbiter position: {orbiter.mPosition}");
                 Vector3d newVec = orbiter.mPosition * Convert.ToDouble(scale_dict[child.gameObject.name]) / (scaleFactor);
                 child.localPosition = new Vector3((float) newVec.z, (float) newVec.x, (float) newVec.y);
             }
@@ -105,6 +103,7 @@ public class MockSolarSystemManager : MonoBehaviour
 
     void Update()
     {
+
         // TODO: REMOVE
         if (Input.GetKeyDown("0"))
         {
@@ -127,6 +126,8 @@ public class MockSolarSystemManager : MonoBehaviour
             updateSelectedPlanets();
         }
     }
+
+    
 
     // should be called only when a new planet is selected
     public void updateSelectedPlanets()

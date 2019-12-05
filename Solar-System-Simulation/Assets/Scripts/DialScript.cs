@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class DialScript : MonoBehaviour
 {
+    private Quaternion rotation;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rotation = transform.localRotation;
     }
 
     // Update is called once per frame
@@ -16,10 +17,10 @@ public class DialScript : MonoBehaviour
         
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-        
-  
-    //    Debug.Log($"Collision: {collision.gameObject.name}");
-    //}
+    private void LateUpdate()
+    {
+        //float y = transform.localRotation.y;
+        //rotation.y = y;
+        //transform.localRotation = rotation;
+    }
 }

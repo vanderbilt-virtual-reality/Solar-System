@@ -59,12 +59,10 @@ public class PlanetTracker : MonoBehaviour
 
         if (m_ShowByName)
         {
-            Debug.Log("here");
             trackPlanets(m_objects.Where(obj => m_NamesToTrack.Contains(obj.name)).ToArray());
         }
         else
         {
-            Debug.Log($"m_NumberToShow: {m_NumberToShow}");
             // show the number of closest ones
             trackPlanets(m_objects.OrderByDescending(obj => obj.distance).Reverse().Take(m_NumberToShow).ToArray());
         }
@@ -80,7 +78,6 @@ public class PlanetTracker : MonoBehaviour
     void trackPlanets(Obj[] planets) {
         List<HitObj> hitObjs = new List<HitObj>();
 
-        Debug.Log($"planets: {planets.Length}");
 
         foreach(Obj o in planets)
         {

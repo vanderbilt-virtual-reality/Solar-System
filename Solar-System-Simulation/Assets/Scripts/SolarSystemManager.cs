@@ -25,7 +25,6 @@ public class SolarSystemManager : MonoBehaviour
     void Start()
     {
         orbiters = FindObjectsOfType<Orbiter>();
-        Debug.Log(orbiters.Length);
         mCharacterMovement = Character.GetComponent<CharacterMovement>();
         PlanetScales = GameObject.FindGameObjectsWithTag("Planet").Select(go => new PlanetScale { go=go, scale=go.transform.localScale}).ToArray();
     }

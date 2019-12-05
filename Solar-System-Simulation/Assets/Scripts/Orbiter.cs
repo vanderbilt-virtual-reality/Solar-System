@@ -44,7 +44,7 @@ public class Orbiter : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.zero;
+            transform.position = new Vector3(0f, -100f, 0);
             MeshRenderer mesh = gameObject.GetComponent<MeshRenderer>();
             if (mesh != null)
             {

@@ -14,32 +14,38 @@ public class Orbiter : MonoBehaviour
     [SerializeField] private float closeToPlanetScale = 1000000;
     public float planetSizeScale;
     private SolarSystemManager SolarSystemManager;
+    private CharacterMovement CharacterMovement;
+    private float startShowingPlanet = 10000000000;
 
     // Start is called before the first frame update
     void Start()
     {
         SolarSystemManager = GameObject.FindObjectOfType<SolarSystemManager>();
+        CharacterMovement = GameObject.FindObjectOfType<CharacterMovement>();
         mPosition = new Vector3d(X, Y, Z);
-        planetSizeScale = 100000000 / closeToPlanetScale;
+        planetSizeScale = startShowingPlanet / closeToPlanetScale;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        Debug.Log("here");
-        planetSizeScale = 100000000 / closeToPlanetScale;
+        planetSizeScale = startShowingPlanet / closeToPlanetScale;
 
-        if (Vector3d.Magnitude(mScaledPosition) < 1000000000)
+        if (Vector3d.Magnitude(mScaledPosition) < startShowingPlanet)
         {
+            double ratio = Vector3d.Magnitude(mScaledPosition) / startShowingPlanet;
+
+            //CharacterMovement.m_MoveSpeed *= (float) ratio;
+
+            float sizeIncrease = (float) Mathd.Lerp(1, 2.5, 1-ratio);
             if (gameObject.name == "Sun")
             {
-                transform.localScale = transform.localScale * planetSizeScale;
+                transform.localScale = transform.localScale * planetSizeScale * sizeIncrease;
             }
             else
             {
                 Transform child = transform.GetChild(0);
-                Debug.Log($"orbiter: {child.gameObject.name}, {child.localScale}");
-                child.localScale = child.localScale * planetSizeScale / SolarSystemManager.PlanetOnlyScale;
+                child.localScale = child.localScale * planetSizeScale / SolarSystemManager.PlanetOnlyScale * sizeIncrease;
             }
         }
            
@@ -50,15 +56,16 @@ public class Orbiter : MonoBehaviour
     void FixedUpdate()
     {
         //Debug.Log(gameObject.name + ": " +  mScaledPosition.ToString() + " ; " + Vector3d.Magnitude(mScaledPosition));
-        if (Vector3d.Magnitude(mScaledPosition) < 1000000000)
+        if (Vector3d.Magnitude(mScaledPosition) < startShowingPlanet)
         {
-            // Show planet in from of us
+            // Show planet in front of us
             // find some way to lock on & leave
     
             Vector3d gamePosition = mScaledPosition / closeToPlanetScale;
 
             // limit how close we get to planet
-            float limit = 30;
+            Debug.Log($"gamePosition: {gamePosition}");
+            float limit = 2500;
             if (Vector3d.Magnitude(gamePosition) < limit)
             {
                 gamePosition = gamePosition * limit / Vector3d.Magnitude(gamePosition); // rescale to 10m away

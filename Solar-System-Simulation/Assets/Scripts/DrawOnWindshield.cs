@@ -72,9 +72,10 @@ public class DrawOnWindshield : MonoBehaviour
 
             float verticalShift = 50; // shift up to see planet
 
-            if (hitObj.distance < 100000000)
+            if (hitObj.distance < 10000000000)
             {
-                verticalShift += (float) Mathd.Lerp(0, 50, 1 - ((hitObj.distance - 100000) / 100000000));
+                Debug.Log($"Lerp: { Mathd.Lerp(1, 100, 1 - ((hitObj.distance - 100000) / 10000000000))}");
+                verticalShift += (float) Mathd.Lerp(1, 100, 1 - ((hitObj.distance - 100000) / 10000000000));
             }
             pos.y += verticalShift; // TODO: scale this depending on how close the object is? Ex: 200 / distance
             GameObject marker;

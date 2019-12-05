@@ -119,7 +119,7 @@ public class CharacterMovement : MonoBehaviour
 
     }
 
-    [SerializeField] private float m_MoveSpeed;
+    [SerializeField] public float m_MoveSpeed;
     [SerializeField] private MouseLook m_MouseLook;
 
     private Camera m_Camera;

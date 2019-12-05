@@ -19,6 +19,6 @@ public class SpeedCanvasController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_SpeedText.GetComponent<Text>().text = $"Speed:\n{Math.Round(m_CharacterMovement.m_MoveSpeed)}m";
+        m_SpeedText.GetComponent<Text>().text = $"Speed:\n{Math.Round(m_CharacterMovement.m_MoveSpeed)}m/s";
     }
 }

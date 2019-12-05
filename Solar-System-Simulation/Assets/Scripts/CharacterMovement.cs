@@ -131,6 +131,7 @@ public class CharacterMovement : MonoBehaviour
     private Vector2 m_Input;
     private Vector3 m_MoveDir = Vector3.zero;
     private Vector3 m_OriginalCameraPosition;
+    private float holdButtonScale = 1;
    
 
     // Start is called before the first frame update
@@ -218,6 +219,24 @@ public class CharacterMovement : MonoBehaviour
 
     private void UpdateSpeed()
     {
-        m_MoveSpeed += OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).y * m_SpeedScale; // TODO: maybe adjust the value (100)
+        Vector2 input = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
+        // The longer you hold the speed button the faster it scales
+        if (input.y != 0)
+        {
+            holdButtonScale += 0.01f;
+        }
+        else
+        {
+            holdButtonScale = 1;
+        }
+
+        Debug.Log($"holdbuttonscale: {holdButtonScale}");
+
+
+        m_MoveSpeed += input.y * m_SpeedScale * holdButtonScale;
+        if (m_MoveSpeed <= 1)
+        {
+            m_MoveSpeed = 1;
+        }
     }
 }

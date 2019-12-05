@@ -56,6 +56,14 @@ public class Orbiter : MonoBehaviour
             // find some way to lock on & leave
     
             Vector3d gamePosition = mScaledPosition / closeToPlanetScale;
+
+            // limit how close we get to planet
+            float limit = 30;
+            if (Vector3d.Magnitude(gamePosition) < limit)
+            {
+                gamePosition = gamePosition * limit / Vector3d.Magnitude(gamePosition); // rescale to 10m away
+            }
+
             transform.position = new Vector3((float)gamePosition.x, (float) gamePosition.y,(float) gamePosition.z);
           
         }

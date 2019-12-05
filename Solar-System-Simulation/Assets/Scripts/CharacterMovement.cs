@@ -122,8 +122,10 @@ public class CharacterMovement : MonoBehaviour
     public Vector3d mPosition;
     public Vector3d mScaledPosition;
 
-    [SerializeField] private float m_MoveSpeed;
+    [SerializeField] public float m_MoveSpeed;
     [SerializeField] private GameObject m_StarCameraController;
+    [SerializeField] private float m_SpeedScale;
+    [SerializeField] private Vector3 m_StartPosition;
 
     private Camera m_Camera;
     private Vector2 m_Input;
@@ -139,13 +141,14 @@ public class CharacterMovement : MonoBehaviour
         // TODO: remove
        // m_MouseLook.Init(transform , transform);
 //        m_MouseLook.Init(transform , m_Camera.transform);
-        mPosition = new Vector3d(transform.position);
+        mPosition = new Vector3d(m_StartPosition);
     }
 
     // Update is called once per frame
     void Update()
     {
         RotateView();
+        UpdateSpeed();
     }
 
     void FixedUpdate()
@@ -153,18 +156,18 @@ public class CharacterMovement : MonoBehaviour
         float speed;
         GetInput(out speed);
         // always move along the camera forward as it is the direction that it being aimed at
-        Vector3 desiredMove = m_Camera.transform.forward*m_Input.y + m_Camera.transform.right*m_Input.x;
+        Vector3 desiredMove = transform.forward * m_Input.y; //+ transform.right*m_Input.x;
 
         speed *= FindObjectOfType<SolarSystemManager>().TimeScale;
 
         m_MoveDir.x = desiredMove.x*speed;
         m_MoveDir.z = desiredMove.z*speed;
-        m_MoveDir.y = desiredMove.y*speed;
+        m_MoveDir.y = 0;
 
         mPosition = mPosition + new Vector3d(m_MoveDir) * Time.fixedDeltaTime;
         //transform.position = transform.position + m_MoveDir*Time.fixedDeltaTime;
 
-        Debug.Log(mPosition);
+        Debug.Log($"character pos: {mPosition}");
 
         //UpdateCameraPosition(speed);
         //m_MouseLook.UpdateCursorLock();
@@ -174,8 +177,7 @@ public class CharacterMovement : MonoBehaviour
     private void GetInput(out float speed)
     {
         // Read input
-        float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-        float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+        m_Input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
 
 
 // #if !MOBILE_INPUT
@@ -185,7 +187,6 @@ public class CharacterMovement : MonoBehaviour
 // #endif
         // set the desired speed to be walking or running
         speed = m_MoveSpeed;
-        m_Input = new Vector2(horizontal, vertical);
 
         // normalize input if it exceeds 1 in combined length:
         if (m_Input.sqrMagnitude > 1)
@@ -202,16 +203,21 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-        if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft))
+        if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft))
         {
             transform.Rotate(0.0f, -0.3f, 0.0f, Space.World);
             m_StarCameraController.transform.Rotate(0.0f, -0.3f, 0.0f, Space.World);
             
         }
-        else if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight))
+        else if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight))
         {
             transform.Rotate(0.0f, 0.3f, 0.0f, Space.World);
             m_StarCameraController.transform.Rotate(0.0f, 0.3f, 0.0f, Space.World);
         }
+    }
+
+    private void UpdateSpeed()
+    {
+        m_MoveSpeed += OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).y * m_SpeedScale; // TODO: maybe adjust the value (100)
     }
 }

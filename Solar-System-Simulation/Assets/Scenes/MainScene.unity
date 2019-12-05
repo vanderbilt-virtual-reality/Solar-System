@@ -10074,7 +10074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MoveSpeed: 0.28
-  m_MouseLook: {fileID: 0}
+  m_StarCameraController: {fileID: 226487916}
 --- !u!4 &1105977616
 Transform:
   m_ObjectHideFlags: 0

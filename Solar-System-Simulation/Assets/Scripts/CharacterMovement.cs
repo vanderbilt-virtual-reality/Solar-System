@@ -123,12 +123,13 @@ public class CharacterMovement : MonoBehaviour
     public Vector3d mScaledPosition;
 
     [SerializeField] private float m_MoveSpeed;
-    [SerializeField] private MouseLook m_MouseLook;
+    [SerializeField] private GameObject m_StarCameraController;
 
     private Camera m_Camera;
     private Vector2 m_Input;
     private Vector3 m_MoveDir = Vector3.zero;
     private Vector3 m_OriginalCameraPosition;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -204,10 +205,13 @@ public class CharacterMovement : MonoBehaviour
         if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft))
         {
             transform.Rotate(0.0f, -0.3f, 0.0f, Space.World);
+            m_StarCameraController.transform.Rotate(0.0f, -0.3f, 0.0f, Space.World);
+            
         }
         else if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight))
         {
             transform.Rotate(0.0f, 0.3f, 0.0f, Space.World);
+            m_StarCameraController.transform.Rotate(0.0f, 0.3f, 0.0f, Space.World);
         }
     }
 }

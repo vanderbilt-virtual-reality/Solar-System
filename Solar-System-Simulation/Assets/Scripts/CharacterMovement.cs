@@ -230,9 +230,6 @@ public class CharacterMovement : MonoBehaviour
             holdButtonScale = 1;
         }
 
-        Debug.Log($"holdbuttonscale: {holdButtonScale}");
-
-
         m_MoveSpeed += input.y * m_SpeedScale * holdButtonScale;
         if (m_MoveSpeed <= 1)
         {

@@ -105,26 +105,26 @@ public class MockSolarSystemManager : MonoBehaviour
     {
 
         // TODO: REMOVE
-        if (Input.GetKeyDown("0"))
-        {
-            SelectedPlanets["MockSun"] = !SelectedPlanets["MockSun"];
-            updateSelectedPlanets();
-        }
-        if (Input.GetKeyDown("1"))
-        {
-            SelectedPlanets["MockMercury"] = !SelectedPlanets["MockMercury"];
-            updateSelectedPlanets();
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            SelectedPlanets["MockVenus"] = !SelectedPlanets["MockVenus"];
-            updateSelectedPlanets();
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            SelectedPlanets["MockEarth"] = !SelectedPlanets["MockEarth"];
-            updateSelectedPlanets();
-        }
+        //if (Input.GetKeyDown("0"))
+        //{
+        //    SelectedPlanets["MockSun"] = !SelectedPlanets["MockSun"];
+        //    updateSelectedPlanets();
+        //}
+        //if (Input.GetKeyDown("1"))
+        //{
+        //    SelectedPlanets["MockMercury"] = !SelectedPlanets["MockMercury"];
+        //    updateSelectedPlanets();
+        //}
+        //if (Input.GetKeyDown("2"))
+        //{
+        //    SelectedPlanets["MockVenus"] = !SelectedPlanets["MockVenus"];
+        //    updateSelectedPlanets();
+        //}
+        //if (Input.GetKeyDown("3"))
+        //{
+        //    SelectedPlanets["MockEarth"] = !SelectedPlanets["MockEarth"];
+        //    updateSelectedPlanets();
+        //}
     }
 
     

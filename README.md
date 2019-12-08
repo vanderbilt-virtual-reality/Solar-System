@@ -49,3 +49,6 @@ Student Group: Quinton Hoffman, Adrian Florea, Dayana Espinoza, Malia Latimer, a
 Client: David Weintraub (Prof. Department of Physics and Astronomy)
 
 Class instructor: Ole Molvig (Prof. Department of History) and Bobby Bodenheimer (Prof. Department of EECS), Vanderbilt University, US.
+
+##Sources and Assets
+Solar System Assets (Planet Prefabs): https://assetstore.unity.com/packages/3d/environments/sci-fi/solar-system-24810

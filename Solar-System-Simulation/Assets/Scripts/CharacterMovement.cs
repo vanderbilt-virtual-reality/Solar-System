@@ -125,6 +125,7 @@ public class CharacterMovement : MonoBehaviour
     public float ActualSpeed;
     [SerializeField] public float m_MoveSpeed;
     [SerializeField] private GameObject m_StarCameraController;
+    [SerializeField] private ParticleSystem hyperSystem;
     [SerializeField] private float m_SpeedScale;
     [SerializeField] private Vector3 m_StartPosition;
 
@@ -151,6 +152,7 @@ public class CharacterMovement : MonoBehaviour
     {
         RotateView();
         UpdateSpeed();
+        HyperSpeed();
     }
 
     void FixedUpdate()
@@ -236,6 +238,36 @@ public class CharacterMovement : MonoBehaviour
         if (m_MoveSpeed <= 1)
         {
             m_MoveSpeed = 1;
+        }
+
+
+    }
+
+    private void HyperSpeed()
+    {
+        if (ActualSpeed > 300000000)
+        {
+            // system should be playing
+            if (hyperSystem.isPlaying)
+            {
+                //already is playing, don't need to do anything
+            }
+            else
+            {
+                hyperSystem.Play();
+            }
+        }
+        else
+        {
+            // system should not be playing
+            if (hyperSystem.isPlaying)
+            {
+                hyperSystem.Stop();
+            }
+            else
+            {
+                // already stopped
+            }
         }
     }
 }

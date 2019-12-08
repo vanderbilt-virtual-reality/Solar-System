@@ -146,7 +146,7 @@ public class MockSolarSystemManager : MonoBehaviour
     {
         foreach(KeyValuePair<string, bool> selectedPlanet in SelectedPlanets)
         {
-            MeshRenderer meshRenderer = transform.Find(selectedPlanet.Key).gameObject.GetComponent<MeshRenderer>();
+            MeshRenderer meshRenderer = transform.Find(selectedPlanet.Key).GetChild(0).gameObject.GetComponent<MeshRenderer>();
             Material mat = meshRenderer.material;
             bool enabled = mat.IsKeywordEnabled("_EMISSION");
 
@@ -154,7 +154,7 @@ public class MockSolarSystemManager : MonoBehaviour
             if (selectedPlanet.Value && !enabled)
             {
                 mat.EnableKeyword("_EMISSION");
-                meshRenderer.enabled = true;
+                //meshRenderer.enabled = true;
 
 
                 List<string> temp = m_PlanetTracker.m_NamesToTrack.ToList();
@@ -168,7 +168,7 @@ public class MockSolarSystemManager : MonoBehaviour
             else if (!selectedPlanet.Value && enabled)
             {
                 mat.DisableKeyword("_EMISSION");
-                meshRenderer.enabled = false;
+              //  meshRenderer.enabled = false;
 
                 List<string> temp = m_PlanetTracker.m_NamesToTrack.ToList();
                 if (temp.Contains(selectedPlanet.Key.Substring(4)))

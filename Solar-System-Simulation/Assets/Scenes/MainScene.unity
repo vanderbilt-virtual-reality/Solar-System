@@ -12836,6 +12836,7 @@ MonoBehaviour:
   SolarSystem: {fileID: 1927458358}
   Character: {fileID: 1105977614}
   orbiters: []
+  maxTimeAdvance: 1e+9
 --- !u!4 &1642966703
 Transform:
   m_ObjectHideFlags: 0

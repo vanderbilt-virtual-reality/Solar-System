@@ -120,27 +120,27 @@ public class DrawOnWindshield : MonoBehaviour
                 double time = hitObj.distance / characterMovement.m_MoveSpeed;
                 string timeStr = "sec";
 
-                if (time / 60 >= 1)
+                if (time / 60 >= 1 && timeStr == "sec")
                 {
                     time = time / 60;
                     timeStr = "min";
                 }
-                if (time / 60 >= 1)
+                if (time / 60 >= 1 && timeStr == "min")
                 {
                     time = time / 60;
                     timeStr = "hr";
                 }
-                if (time / 24 >= 1)
+                if (time / 24 >= 1 && timeStr == "hr")
                 {
                     time = time / 24;
                     timeStr = "day(s)";
                 }
-                if (time / 7 >= 1)
+                if (time / 7 >= 1 && timeStr == "day(s)")
                 {
                     time = time / 7;
                     timeStr = "wk";
                 }
-                if (time / 52 >= 1)
+                if (time / 52 >= 1 && timeStr == "wk")
                 {
                     time = time / 52;
                     timeStr = "yr";

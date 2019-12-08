@@ -6,7 +6,8 @@ using System.Linq;
 
 public class PlanetTracker : MonoBehaviour
 {
-    private DrawOnWindshield drawOnWindshield;
+    [SerializeField] GameObject[] windshields;
+    private DrawOnWindshield[] drawOnWindshields;
 
     private Obj[] m_objects = { };
 
@@ -24,6 +25,7 @@ public class PlanetTracker : MonoBehaviour
         public RaycastHit hit;
         public string name;
         public double distance;
+        public string hitObjName;
     }
 
     public String[] m_NamesToTrack;
@@ -34,7 +36,7 @@ public class PlanetTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        drawOnWindshield = GameObject.Find("Windshield").transform.Find("Canvas").GetComponent<DrawOnWindshield>();
+        drawOnWindshields = windshields.Select((windshield) => windshield.transform.Find("Canvas").GetComponent<DrawOnWindshield>()).ToArray();
         GameObject[] gmArr = GameObject.FindGameObjectsWithTag("Planet");
 
         List<Obj> objsList = new List<Obj>();
@@ -103,12 +105,17 @@ public class PlanetTracker : MonoBehaviour
                     // sphere.transform.position = hit.point;
                     // sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
-                    hitObjs.Add(new HitObj {hit=hit, name=o.name, distance=o.distance});
+                    hitObjs.Add(new HitObj {hit=hit, name=o.name, distance=o.distance, hitObjName=hit.collider.name});
                 }
 
             }
         }
 
-        drawOnWindshield.drawPointsWithName(hitObjs);
+        int index = 0;
+        foreach (DrawOnWindshield d in drawOnWindshields)
+        {
+            d.drawPointsWithName(hitObjs.Where((h) => h.hitObjName == windshields[index].name).ToList());   
+            ++index;
+        }
     }
 }

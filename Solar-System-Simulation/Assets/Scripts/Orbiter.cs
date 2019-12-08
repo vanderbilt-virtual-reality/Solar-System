@@ -46,7 +46,9 @@ public class Orbiter : MonoBehaviour
             else
             {
                 Transform child = transform.GetChild(0);
+                Debug.Log($"Scale: {child.localScale}");
                 child.localScale = child.localScale * planetSizeScale / SolarSystemManager.PlanetOnlyScale * sizeIncrease;
+                
             }
         }
            
@@ -65,8 +67,21 @@ public class Orbiter : MonoBehaviour
             Vector3d gamePosition = mScaledPosition / closeToPlanetScale;
 
             // limit how close we get to planet
-            Debug.Log($"gamePosition: {gamePosition}");
-            float limit = 2500;
+            //Debug.Log($"gamePosition: {gamePosition}");
+            //float limit = 2500;
+            //if (Vector3d.Magnitude(gamePosition) < limit)
+            //{
+            //    gamePosition = gamePosition * limit / Vector3d.Magnitude(gamePosition); // rescale to 10m away
+            //}
+            float limit;
+            if (gameObject.name == "Sun")
+            {
+                limit = Vector3.Magnitude(transform.localScale) * 2;
+            }
+            else
+            {
+                limit = Vector3.Magnitude(transform.GetChild(0).localScale) * 2;
+            }
             if (Vector3d.Magnitude(gamePosition) < limit)
             {
                 gamePosition = gamePosition * limit / Vector3d.Magnitude(gamePosition); // rescale to 10m away

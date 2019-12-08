@@ -5,6 +5,10 @@ using UnityEngine;
 using System;
 using System.Linq;
 
+
+/**
+ * This class manages the mock solar system that exists on the ship
+ */
 public class MockSolarSystemManager : MonoBehaviour
 {
     private Transform Character;
@@ -41,12 +45,17 @@ public class MockSolarSystemManager : MonoBehaviour
         m_PlanetTracker = Camera.main.GetComponent<PlanetTracker>();
     }
 
+
+
+    // FixedUpdate() is called every fixed frame-rate frame
     void FixedUpdate()
     {
         // MockOrbiter has reference to real object
         // map position of that object to local position and divide by a large amount
 
+        // find the ship
         Transform ship = transform.Find("Ship");
+
 
         Vector3 shipPos = new Vector3();
 
@@ -69,9 +78,12 @@ public class MockSolarSystemManager : MonoBehaviour
 
         int index = 0;
         Transform sunTransform = transform.Find("MockSun");
+
+        // loops through each mock planet
+        // update its local position based 
         foreach (Transform child in transform)
         {
-            if (child.gameObject.name.ToLower() == "ship") continue;
+            if (child.gameObject.name.ToLower() == "ship") continue; //skip everything if it's a ship
 
             GameObject o = child.gameObject.GetComponent<MockOrbiter>().ReferenceObject;
 

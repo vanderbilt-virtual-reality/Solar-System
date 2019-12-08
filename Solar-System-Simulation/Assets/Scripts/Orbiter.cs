@@ -17,12 +17,14 @@ public class Orbiter : MonoBehaviour
     private CharacterMovement CharacterMovement;
     private float startShowingPlanet = 10000000000;
     AudioSource m_MyAudioSource;
+    private ConsoleScreenFront consoleScreenFront;
 
     // Start is called before the first frame update
     void Start()
     {
         SolarSystemManager = GameObject.FindObjectOfType<SolarSystemManager>();
         CharacterMovement = GameObject.FindObjectOfType<CharacterMovement>();
+        consoleScreenFront = GameObject.FindObjectOfType<ConsoleScreenFront>(); 
         mPosition = new Vector3d(X, Y, Z);
         planetSizeScale = startShowingPlanet / closeToPlanetScale;
 
@@ -87,6 +89,9 @@ public class Orbiter : MonoBehaviour
         //Debug.Log(gameObject.name + ": " +  mScaledPosition.ToString() + " ; " + Vector3d.Magnitude(mScaledPosition));
         if (Vector3d.Magnitude(mScaledPosition) < startShowingPlanet)
         {
+            consoleScreenFront.showWarningText(true, gameObject.name);
+            //consoleScreenFront.showDetails(true, gameObject.name);
+
             // Show planet in front of us
             // find some way to lock on & leave
     
@@ -119,6 +124,8 @@ public class Orbiter : MonoBehaviour
         else
         {
             transform.position = new Vector3(0f, -100f, 0);
+            consoleScreenFront.showWarningText(false, gameObject.name);
+            //consoleScreenFront.showDetails(false, null);
         }
     }
 }

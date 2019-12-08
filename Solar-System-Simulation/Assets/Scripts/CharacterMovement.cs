@@ -135,6 +135,7 @@ public class CharacterMovement : MonoBehaviour
     private Vector2 m_Input;
     private Vector3 m_MoveDir = Vector3.zero;
     private Vector3 m_OriginalCameraPosition;
+    private float oldMoveSpeed = 1;
     private float holdButtonScale = 1;
    
 
@@ -220,6 +221,21 @@ public class CharacterMovement : MonoBehaviour
 
     private void UpdateSpeed()
     {
+        if (OVRInput.Get(OVRInput.RawButton.A))
+        {
+            if (m_MoveSpeed > 1)
+            {
+                oldMoveSpeed = m_MoveSpeed;
+            }
+            
+            m_MoveSpeed = 1;
+        }
+
+        if (OVRInput.Get(OVRInput.RawButton.B))
+        {
+            m_MoveSpeed = oldMoveSpeed;
+        }
+
         Vector2 input = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
         // The longer you hold the speed button the faster it scales
         if (input.y != 0)

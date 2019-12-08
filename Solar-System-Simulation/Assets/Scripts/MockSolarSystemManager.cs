@@ -12,6 +12,7 @@ using System.Linq;
 public class MockSolarSystemManager : MonoBehaviour
 {
     private Transform Character;
+    private CharacterMovement characterMovement;
     private PlanetTracker m_PlanetTracker;
     private OrderedDictionary scale_dict = new OrderedDictionary(){
             {"MockSun", .01f},
@@ -36,6 +37,7 @@ public class MockSolarSystemManager : MonoBehaviour
     void Start()
     {
         Character = Camera.main.transform.parent;
+        characterMovement = GameObject.FindObjectOfType<CharacterMovement>();
         planet_distances = planet_distances.Select(d => d*scaleFactor).ToArray();
         foreach(DictionaryEntry obj in scale_dict)
         {
@@ -57,24 +59,7 @@ public class MockSolarSystemManager : MonoBehaviour
         Transform ship = transform.Find("Ship");
 
 
-        Vector3 shipPos = new Vector3();
-
-        float[] scaleDictValues = new float[scale_dict.Values.Count];
-
-        scale_dict.Values.CopyTo(scaleDictValues, 0);
-
-        for (var i = 0; i < planet_distances.Length; ++i)
-        {
-            if (ship.position.magnitude <= planet_distances[i])
-            {
-                shipPos = Character.position * scaleDictValues[i] / (float) scaleFactor;
-                break;
-            }
-        }
-
-        // Debug.Log($"Character pos:{Character.position}, shipPos:{shipPos}");
         
-        ship.localPosition = new Vector3(shipPos.z, shipPos.x, shipPos.y);
 
         int index = 0;
         Transform sunTransform = transform.Find("MockSun");
@@ -83,7 +68,29 @@ public class MockSolarSystemManager : MonoBehaviour
         // update its local position based 
         foreach (Transform child in transform)
         {
-            if (child.gameObject.name.ToLower() == "ship") continue; //skip everything if it's a ship
+            if (child.gameObject.name.ToLower() == "ship")
+            {
+                Vector3d shipPos = new Vector3d();
+
+                float[] scaleDictValues = new float[scale_dict.Values.Count];
+
+                scale_dict.Values.CopyTo(scaleDictValues, 0);
+
+                for (var i = 1; i < planet_distances.Length; ++i)
+                {
+                    if (characterMovement.mPosition.magnitude <= planet_distances[i] && characterMovement.mPosition.magnitude > planet_distances[i - 1])
+                    {
+                        shipPos = characterMovement.mPosition.normalized *
+                            Mathd.Lerp(planet_distances[i - 1] * scaleDictValues[i - 1], planet_distances[i] * scaleDictValues[i], (characterMovement.mPosition.magnitude - planet_distances[i - 1]) / (planet_distances[i] - planet_distances[i - 1])) / (float)scaleFactor;
+                    }
+                }
+
+                // Debug.Log($"Character pos:{Character.position}, shipPos:{shipPos}");
+
+                ship.localPosition = new Vector3((float)shipPos.z, (float)shipPos.x, (float)shipPos.y);
+                continue; //skip everything if it's a ship
+            }
+            
 
             GameObject o = child.gameObject.GetComponent<MockOrbiter>().ReferenceObject;
 

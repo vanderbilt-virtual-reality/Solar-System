@@ -58,9 +58,6 @@ public class MockSolarSystemManager : MonoBehaviour
         // find the ship
         Transform ship = transform.Find("Ship");
 
-
-        
-
         int index = 0;
         Transform sunTransform = transform.Find("MockSun");
 
@@ -88,6 +85,12 @@ public class MockSolarSystemManager : MonoBehaviour
                 // Debug.Log($"Character pos:{Character.position}, shipPos:{shipPos}");
 
                 ship.localPosition = new Vector3((float)shipPos.z, (float)shipPos.x, (float)shipPos.y);
+
+                Vector3 rot = Character.rotation.eulerAngles;
+
+                rot.x = -rot.y;
+                rot.y = 90;
+                ship.localRotation = Quaternion.Euler(rot);
                 continue; //skip everything if it's a ship
             }
             

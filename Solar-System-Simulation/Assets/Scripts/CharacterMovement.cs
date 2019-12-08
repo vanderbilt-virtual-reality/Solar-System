@@ -125,7 +125,9 @@ public class CharacterMovement : MonoBehaviour
     public float ActualSpeed;
     [SerializeField] public float m_MoveSpeed;
     [SerializeField] private GameObject m_StarCameraController;
+    [SerializeField] private GameObject hyperSystemGO;
     [SerializeField] private ParticleSystem hyperSystem;
+    private ParticleSystemRenderer hyperSystemRenderer;
     [SerializeField] private float m_SpeedScale;
     [SerializeField] private Vector3 m_StartPosition;
 
@@ -248,14 +250,12 @@ public class CharacterMovement : MonoBehaviour
         if (ActualSpeed > 300000000)
         {
             // system should be playing
-            if (hyperSystem.isPlaying)
-            {
-                //already is playing, don't need to do anything
-            }
-            else
+            if (!hyperSystem.isPlaying)
             {
                 hyperSystem.Play();
             }
+
+            hyperSystemGO.GetComponent<ParticleSystemRenderer>().lengthScale = 100 * (float) Math.Atan(ActualSpeed / 3000000000);
         }
         else
         {
@@ -264,10 +264,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 hyperSystem.Stop();
             }
-            else
-            {
-                // already stopped
-            }
+            
         }
     }
 }

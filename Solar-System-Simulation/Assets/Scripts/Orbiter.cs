@@ -57,7 +57,7 @@ public class Orbiter : MonoBehaviour
             {
 
                 transform.localScale = transform.localScale * planetSizeScale * sizeIncrease * 10000000;
-                m_MyAudioSource.maxDistance = 1000;
+                m_MyAudioSource.maxDistance = Vector3.Magnitude(transform.localScale) * 4;
             }
             else
             {
@@ -69,7 +69,7 @@ public class Orbiter : MonoBehaviour
 
 
                 // change the scale of the audio source
-                m_MyAudioSource.maxDistance = 100;
+                m_MyAudioSource.maxDistance = Vector3.Magnitude(transform.GetChild(0).localScale) * 4;
 
             }
         } 

@@ -122,6 +122,7 @@ public class CharacterMovement : MonoBehaviour
     public Vector3d mPosition;
     public Vector3d mScaledPosition;
 
+    public float ActualSpeed;
     [SerializeField] public float m_MoveSpeed;
     [SerializeField] private GameObject m_StarCameraController;
     [SerializeField] private float m_SpeedScale;
@@ -160,6 +161,8 @@ public class CharacterMovement : MonoBehaviour
         Vector3 desiredMove = transform.forward * m_Input.y; //+ transform.right*m_Input.x;
 
         speed *= FindObjectOfType<SolarSystemManager>().TimeScale;
+
+        ActualSpeed = Vector3.Magnitude(desiredMove) * speed;
 
         m_MoveDir.x = desiredMove.x*speed;
         m_MoveDir.z = desiredMove.z*speed;
@@ -222,7 +225,7 @@ public class CharacterMovement : MonoBehaviour
         // The longer you hold the speed button the faster it scales
         if (input.y != 0)
         {
-            holdButtonScale += 0.01f;
+            holdButtonScale += 0.015f;
         }
         else
         {

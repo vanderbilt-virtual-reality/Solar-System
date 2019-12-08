@@ -16,6 +16,7 @@ public class Orbiter : MonoBehaviour
     private SolarSystemManager SolarSystemManager;
     private CharacterMovement CharacterMovement;
     private float startShowingPlanet = 10000000000;
+    AudioSource m_MyAudioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,17 @@ public class Orbiter : MonoBehaviour
         CharacterMovement = GameObject.FindObjectOfType<CharacterMovement>();
         mPosition = new Vector3d(X, Y, Z);
         planetSizeScale = startShowingPlanet / closeToPlanetScale;
+
+
+        if (gameObject.name == "Sun")
+        {
+            m_MyAudioSource = GetComponent<AudioSource>();
+
+        }
+        else
+        {
+            m_MyAudioSource = transform.GetChild(0).gameObject.GetComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -38,18 +50,32 @@ public class Orbiter : MonoBehaviour
             //CharacterMovement.m_MoveSpeed *= (float) ratio;
 
             float sizeIncrease = (float) Mathd.Lerp(0, 2.5, 1-ratio);
+            m_MyAudioSource.mute = false;
+            
+
             if (gameObject.name == "Sun")
             {
 
                 transform.localScale = transform.localScale * planetSizeScale * sizeIncrease * 10000000;
+                m_MyAudioSource.maxDistance = 1000;
             }
             else
             {
                 Transform child = transform.GetChild(0);
                 Debug.Log($"Scale: {child.localScale}");
+                Debug.Log($"Audio Clip: {m_MyAudioSource.clip.ToString()}");
                 child.localScale = child.localScale * planetSizeScale / SolarSystemManager.PlanetOnlyScale * sizeIncrease;
-                
+
+
+
+                // change the scale of the audio source
+                m_MyAudioSource.maxDistance = 100;
+
             }
+        } 
+        else
+        {
+            m_MyAudioSource.mute = true;
         }
            
 

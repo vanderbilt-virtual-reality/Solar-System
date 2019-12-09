@@ -212,8 +212,8 @@ public class CharacterMovement : MonoBehaviour
 
 
         float rot = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
-        transform.Rotate(0.0f, 0.5f * rot, 0.0f, Space.World);
-        m_StarCameraController.transform.Rotate(0.0f, 0.5f * rot, 0.0f, Space.World);
+        transform.Rotate(0.0f, 0.4f * rot, 0.0f, Space.World);
+        m_StarCameraController.transform.Rotate(0.0f, 0.4f * rot, 0.0f, Space.World);
            
         
        

@@ -9,6 +9,7 @@ public class ConsoleScreenFront : MonoBehaviour
     [SerializeField] private GameObject detailsText;
     private List<string> enabledList = new List<string>();
     private List<string> detailsList = new List<string>();
+    private float timeLeft = .5f;
 
 
     // Start is called before the first frame update
@@ -20,7 +21,22 @@ public class ConsoleScreenFront : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (timeLeft <= 0)
+        {
+            timeLeft = .5f;
+            if (warningText.GetComponent<Text>().color == Color.black)
+            {
+                warningText.GetComponent<Text>().color = Color.red;
+            }
+            else
+            {
+                warningText.GetComponent<Text>().color = Color.black;
+            }
+        }
+        else
+        {
+            timeLeft -= Time.deltaTime;
+        }
     }
 
     public void showWarningText(bool enabled, string name)

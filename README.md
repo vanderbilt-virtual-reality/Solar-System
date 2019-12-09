@@ -53,13 +53,14 @@ Highlight a planet using your index finger to point and touch the planet on the 
 
 **Center of Dashboard- Planet Proximity and Information:**
 
-Display warns if a planet is in close proximity and the information related to the respective planet
+Display warns if a planet is in close proximity and the information related to the respective planet. The type of information displayed is the planet's average distance from the sun, radius, number of moons and/or rings, as well as type of planet (i.e. Terrestrial, Gas Giant, Ice Giant)
 
 **Right of Dashboard-Speed:**
 
 Display shows current speed and in reference to the speed of light. 
 
-*Game controls can be seen on monitors at the back of the spaceship*
+### Back Monitors
+Behind the player is a set of computer monitors that display the instructions of the game for the player to reference during the game.
 
 ## Information for Particular Project Aspects
 ### Starry Sky Creation

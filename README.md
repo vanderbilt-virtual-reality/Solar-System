@@ -62,7 +62,34 @@ Display shows current speed and in reference to the speed of light.
 ### Back Monitors
 Behind the player is a set of computer monitors that display the instructions of the game for the player to reference during the game.
 
-![Back Monitor](Screenshot-(6).png)
+![Back Monitor](/Screenshot-(6).png)
+
+### Troubleshooting and FAQ
+**Planets aren't highlighting on mimi map when I touch them**
+
+Make sure that the hand being used to touch the planets has the index finger extended in a pointing gesture. To do this, make sure your index finger is not touching physically touching the Oculus controller.
+
+**I keep moving past the planets without seeing them**
+
+It is most likely that you are moving too quickly. To slow down, press the A button on the right controller to reset your speed to zero, and slowly increase your speed from there.
+
+**How do I see what planet I am selecting on the mini map?/ Where is the planet I selected?**
+
+If you are having trouble finding the planet marker for the planet you selected, physically rotate yourself to look around the ship. The planet may appear anywhere 360 degrees around the spaceship. The marker will tell you which planet(s) is selected.
+
+**Where am I?**
+
+If you look at the mini map, there is a small red cone. This represents your current position in the solar system.
+
+**Why is baby Yoda here?**
+
+Because why not. He's cute.
+
+**General Gameplay Tips?**
+
+- You can move the ship with the left controller and change speed with right controller at the same time.
+- Slow down as you approach a planet
+
 
 
 ## Information for Particular Project Aspects
@@ -97,7 +124,6 @@ Planet Sounds: The planet sounds are created from converting the radio frequenci
 <a href="https://www.youtube.com/watch?v=4xpR4hyPSlE"> Pluto Audio</a>
 
 Ship Background Music: Blue Danube Waltz by Dieter Goldmann Strings
-
 
 
 ## Sources, Assets and Relevant Links

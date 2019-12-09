@@ -19,6 +19,82 @@ public class Orbiter : MonoBehaviour
     AudioSource m_MyAudioSource;
     private ConsoleScreenFront consoleScreenFront;
 
+    private Dictionary<string, Dictionary<string, string>> planetsDetails = new Dictionary<string, Dictionary<string, string>>
+    {
+        {"Mercury",
+            new Dictionary<string, string>{
+                { "distance", "5.98e7 km" },
+                {"radius", "2440 km" },
+                {"type", "Terrestrial" },
+                {"accessories", "No moons" },
+            }
+        },
+        {"Venus",
+            new Dictionary<string, string>{
+                { "distance", "1.05e8 km" },
+                {"radius", "6052 km" },
+                {"type", "Terrestrial" },
+                {"accessories", "No moons" },
+            }
+        },
+        {"Earth",
+            new Dictionary<string, string>{
+                { "distance", "1.49e8 km" },
+                {"radius", "6371 km" },
+                {"type", "Terrestrial" },
+                {"accessories", "1 moon" },
+            }
+        },
+        {"Mars",
+            new Dictionary<string, string>{
+                { "distance", "2.24e8 km" },
+                {"radius", "3390 km" },
+                {"type", "Terrestrial" },
+                {"accessories", "2 moons" },
+            }
+        },
+        {"Jupiter",
+            new Dictionary<string, string>{
+                { "distance", "7.78e8 km" },
+                {"radius", "69,911 km" },
+                {"type", "Gas Giant" },
+                {"accessories", "79 moons and has rings" },
+            }
+        },
+        {"Saturn",
+            new Dictionary<string, string>{
+                { "distance", "1.42e9 km" },
+                {"radius", "58,232 km" },
+                {"type", "Gas Giant" },
+                {"accessories", "89 moons and has rings" },
+            }
+        },
+        {"Uranus",
+            new Dictionary<string, string>{
+                { "distance", "2.96e9 km" },
+                {"radius", "25,362 km" },
+                {"type", "Ice Giant" },
+                {"accessories", "27 moons and has rings" },
+            }
+        },
+        {"Neptune",
+            new Dictionary<string, string>{
+                { "distance", "4.49e9 km" },
+                {"radius", "24,622 km" },
+                {"type", "Ice Giant" },
+                {"accessories", "14 moons and has rings" },
+            }
+        },
+        {"Pluto",
+            new Dictionary<string, string>{
+                { "distance", "5.83e9 km" },
+                {"radius", "1151 km" },
+                {"type", "Not a planet" },
+                {"accessories", "RIP Pluto 2006" },
+            }
+        },
+    };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +166,15 @@ public class Orbiter : MonoBehaviour
         if (Vector3d.Magnitude(mScaledPosition) < startShowingPlanet)
         {
             consoleScreenFront.showWarningText(true, gameObject.name);
-            //consoleScreenFront.showDetails(true, gameObject.name);
+
+            string name = gameObject.name;
+
+            if (name != "Sun")
+            {
+                name = name.Remove(name.Length - 6, 6);
+                consoleScreenFront.showDetails(true, planetsDetails[name], gameObject.name);
+            }
+      
 
             // Show planet in front of us
             // find some way to lock on & leave
@@ -118,14 +202,17 @@ public class Orbiter : MonoBehaviour
                 gamePosition = gamePosition * limit / Vector3d.Magnitude(gamePosition); // rescale to 10m away
             }
 
-            transform.position = new Vector3((float)gamePosition.x, (float) gamePosition.y,(float) gamePosition.z);
-          
+            if (!double.IsNaN(gamePosition.x))
+            {
+                transform.position = new Vector3((float)gamePosition.x, (float)gamePosition.y, (float)gamePosition.z);
+            }
+
         }
         else
         {
             transform.position = new Vector3(0f, -100f, 0);
             consoleScreenFront.showWarningText(false, gameObject.name);
-            //consoleScreenFront.showDetails(false, null);
+            consoleScreenFront.showDetails(false, null, gameObject.name);
         }
     }
 }

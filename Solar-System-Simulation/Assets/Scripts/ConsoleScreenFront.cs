@@ -8,6 +8,7 @@ public class ConsoleScreenFront : MonoBehaviour
     [SerializeField] private GameObject warningText;
     [SerializeField] private GameObject detailsText;
     private List<string> enabledList = new List<string>();
+    private List<string> detailsList = new List<string>();
 
 
     // Start is called before the first frame update
@@ -25,7 +26,6 @@ public class ConsoleScreenFront : MonoBehaviour
     public void showWarningText(bool enabled, string name)
     {
         if (name == "Sun") return;
-        Debug.Log($"Here: {enabled}, {name}");
         if(!enabled && enabledList.Contains(name))
         {
             warningText.GetComponent<Text>().enabled = enabled;
@@ -33,7 +33,6 @@ public class ConsoleScreenFront : MonoBehaviour
         }
         else if (enabled && !enabledList.Contains(name))
         {
-            Debug.Log("HERE2");
             warningText.GetComponent<Text>().enabled = enabled;
             enabledList.Add(name);
         } else if (enabled && enabledList.Contains(name))
@@ -42,10 +41,30 @@ public class ConsoleScreenFront : MonoBehaviour
         }
     }
 
-    public void showDetails(bool enabled, string details)
+    public void showDetails(bool enabled, Dictionary<string, string> details, string name)
     {
         Text t = detailsText.GetComponent<Text>();
-        t.enabled = enabled;
-        t.text = details;
+        string d = "";
+        if (details != null)
+        {
+            d = $"Distance: {details["distance"]}\nRadius: {details["radius"]}\nType: {details["type"]}\nOther info: {details["accessories"]}";
+        }
+
+        if (!enabled && detailsList.Contains(name))
+        {
+            t.enabled = enabled; // false
+            detailsList.Remove(name);
+        }
+        else if (enabled && !detailsList.Contains(name))
+        {
+            t.enabled = enabled; // true
+            t.text = d;
+            detailsList.Add(name);
+        }
+        else if (enabled && detailsList.Contains(name))
+        {
+            t.enabled = enabled; // true
+            t.text = d;
+        }
     }
 }

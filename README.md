@@ -16,9 +16,10 @@ Unity Version 2019.2.6f1
 
 Oculus Version 1.43
 
-## Trello
+## About This Game
+This game is a simulation of the Milky Way solar system. Our goal was to create a simulation that focused on the sheer size of the solar system and the time that it would take to travel the distances between planets. While limiting the player to realistic speed would not be an enjoyable experience, we attempted to emphasize the experience of time and distance by keeping a realistic distance, allowing the speed to be extremely unrealistic, and using time to warp the user's experience. The user starts at the sun and is able to pilot their spaceship between Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, and Pluto.
 
-To access our Trello board: <a href="https://trello.com/invite/b/dn2gKOlD/d1af0289d0a9df8f983986a54db01d8b/solar-system-simulation">Link</a>
+
 ## Game Controls
 ### Right Controller: 
 
@@ -93,7 +94,10 @@ Ship Background Music: Blue Danube Waltz by Dieter Goldmann Strings
 
 
 
-## Sources and Assets
+## Sources, Assets and Relevant Links
+### Trello
+To access our Trello board: <a href="https://trello.com/invite/b/dn2gKOlD/d1af0289d0a9df8f983986a54db01d8b/solar-system-simulation">Link</a>
+
 ### Data/Information Resources 
 <a href="https://solarsystem.nasa.gov/planets/overview/"> Planet Information 
 	
@@ -101,6 +105,7 @@ Ship Background Music: Blue Danube Waltz by Dieter Goldmann Strings
 <a href="https://assetstore.unity.com/packages/3d/environments/sci-fi/solar-system-24810"> Solar System Assets V3.0</a>: Planet prefabs with textures
 
 <a href="https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-styled-modular-pack-82913">Sci-Fi Styled Modular Pack V1.0</a>: Projector Prefab and Hologram Material
+
 
 
 ### External Models 

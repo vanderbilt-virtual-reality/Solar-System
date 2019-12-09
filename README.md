@@ -14,34 +14,45 @@
 ## Trello
 
 To access our Trello board: <a href="https://trello.com/invite/b/dn2gKOlD/d1af0289d0a9df8f983986a54db01d8b/solar-system-simulation">Link</a>
+## Game Controls
+Right Controller: 
 
-## Viet branch
+Thumbstick Up: Accelerate Ship 
 
+Thumbstick Down: Decelerate Ship 
+
+Press A: Reset speed to 1 m/s
+
+Press B: Revert to Original Speed
+## Information for Particular Project Aspects
 ### Starry Sky Creation
+Created By: Viet Than
 
 The only <a href="https://thomaskole.wordpress.com/portfolio/how-to-generate-a-physically-accurate-star-field-in-unity-using-real-world-data/">guide</a> is outdated so Viet is trying to recreate that with the newer version of Unity.
 
 Read guide and progress log here: <a href="StarrySkyCreation.md">Starry Sky Creation: Working with Unity3D Particle Effect System</a>
 
 ### Audio
+Planet Sounds: 
 
-## Quinton branch
+Ship Background Music: Blue Danube Waltz by Dieter Goldmann Strings
 
-### Solar system, gravity, travelling
 
-Quinton is working on/completed basic modeling of solar system orbits, 
 
-## Malia branch
+## Sources and Assets
+### Data/Information Resources 
+<a href="https://solarsystem.nasa.gov/planets/overview/"> Planet Information 
+	
+### Unity Assets
+<a href="https://assetstore.unity.com/packages/3d/environments/sci-fi/solar-system-24810"> Solar System Assets V3.0</a>: Planet prefabs with textures
 
-### Planet textures
+<a href="https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-styled-modular-pack-82913">Sci-Fi Styled Modular Pack V1.0</a>: Projector Prefab and Hologram Material
 
-Malia has found some tutorial/competitions to learn from. 
 
-## Adrian branch
+### External Models 
+Spaceship Model created by Quinton Hoffman
 
-### Spaceship
-
-Adrian has reasearched a spaceship prefab.
+<a href="https://www.thingiverse.com/thing:4001171">Smile Baby Yoda</a> created by Multiverse3DDesigns
 
 ## Author and Acknowledgements
 Student Group: Quinton Hoffman, Adrian Florea, Dayana Espinoza, Malia Latimer, and Viet Than
@@ -50,6 +61,5 @@ Client: David Weintraub (Prof. Department of Physics and Astronomy)
 
 Class instructor: Ole Molvig (Prof. Department of History) and Bobby Bodenheimer (Prof. Department of EECS), Vanderbilt University, US.
 
-## Sources and Assets
-Solar System Assets (https://assetstore.unity.com/packages/3d/environments/sci-fi/solar-system-24810)
--Planet prefabs with textures
+
+

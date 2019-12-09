@@ -11,6 +11,11 @@
 			 alt="language">
 </p>
 
+### Versions
+Unity Version 2019.2.6f1
+
+Oculus Version 1.43
+
 ## Trello
 
 To access our Trello board: <a href="https://trello.com/invite/b/dn2gKOlD/d1af0289d0a9df8f983986a54db01d8b/solar-system-simulation">Link</a>
@@ -25,6 +30,8 @@ Press A: Reset speed to 1 m/s
 
 Press B: Revert to Original Speed
 
+Point index finger to activate/deactivate objects on mini map
+
 ### Left Controller: 
 Thumbstick Up: Move Ship Forward 
 
@@ -34,16 +41,20 @@ Thumbstick Left: Rotate Ship Left
 
 Thumbstick Right: Rotate Ship Right
 
+Point index finger to activate/deactivate objects on mini map
+
 ### Dashboard Capabilities: 
-Left Side Dashboard- 3D Map: 
+**Left Side Dashboard- 3D Mini Map:**
 
-Map shows planet Location in real time and spaceship position in the solar system. Toggle a planet using your index finger to display the planet tracker. Touch the planet again to deactivate the planet tracker. Tracker displays Planet location, ETA, distance, and name.  Multiple trackers can be activated at a time. 
+Map shows the current positions of the planets and spaceship in the solar system.
 
-Center of Dashboard- Planet Proximity and Information: 
+Highlight a planet using your index finger to point and touch the planet on the planet tracker/mini map. Touch the planet again to deactivate the planet tracker. Highlighting a planet on the planet tracker causes a position marker to appear above the actual planet outside the ship, along with planet name, current distance from planet, and estimate time of arrival to planet at current speed.  Multiple trackers can be activated at a time. 
+
+**Center of Dashboard- Planet Proximity and Information:**
 
 Display warns if a planet is in close proximity and the information related to the respective planet
 
-Right of Dashboard- Speed 
+**Right of Dashboard-Speed:**
 
 Display shows current speed and in reference to the speed of light. 
 

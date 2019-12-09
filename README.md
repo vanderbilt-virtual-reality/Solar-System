@@ -30,6 +30,10 @@ Thumbstick Up: Move Ship Forward
 
 Thumbstick Down: Move Ship Backwards 
 
+Thumbstick Left: Rotate Ship Left
+
+Thumbstick Right: Rotate Ship Right
+
 ### Dashboard Capabilities: 
 Left Side Dashboard- 3D Map: 
 
@@ -53,6 +57,26 @@ Read guide and progress log here: <a href="StarrySkyCreation.md">Starry Sky Crea
 
 ### Audio
 Planet Sounds: 
+
+<a href="https://www.youtube.com/watch?v=GvMbUxqGuOc"> Sun Audio</a>
+
+<a href="https://www.youtube.com/watch?v=894Aejo-R0U"> Mercury Audio </a>
+
+<a href="https://www.youtube.com/watch?v=-ewPtH31Xr8"> Venus Audio</a>
+
+<a href="https://www.youtube.com/watch?v=NhAXIjJ56xE"> Earth Audio</a>
+
+<a href="https://www.youtube.com/watch?v=PseSJoicfrg"> Mars Audio</a>
+
+<a href="https://www.youtube.com/watch?v=e3fqE01YYWs"> Jupiter Audio</a>
+
+<a href="https://www.youtube.com/watch?v=X_JAvVjKeWI"> Saturn Audio</a>
+
+<a href="https://www.youtube.com/watch?v=F8JMFVK-LjA"> Uranus Audio</a>
+
+<a href="https://www.youtube.com/watch?v=rwnpXll_A_E"> Neptune Audio</a>
+
+<a href="https://www.youtube.com/watch?v=4xpR4hyPSlE"> Pluto Audio</a>
 
 Ship Background Music: Blue Danube Waltz by Dieter Goldmann Strings
 

@@ -62,6 +62,9 @@ Display shows current speed and in reference to the speed of light.
 ### Back Monitors
 Behind the player is a set of computer monitors that display the instructions of the game for the player to reference during the game.
 
+![Back Monitor](Screenshot-(6).png)
+
+
 ## Information for Particular Project Aspects
 ### Starry Sky Creation
 Created By: Viet Than
@@ -71,7 +74,7 @@ The only <a href="https://thomaskole.wordpress.com/portfolio/how-to-generate-a-p
 Read guide and progress log here: <a href="StarrySkyCreation.md">Starry Sky Creation: Working with Unity3D Particle Effect System</a>
 
 ### Audio
-Planet Sounds: 
+Planet Sounds: The planet sounds are created from converting the radio frequencies gathered from satellites near planets into audio.
 
 <a href="https://www.youtube.com/watch?v=GvMbUxqGuOc"> Sun Audio</a>
 

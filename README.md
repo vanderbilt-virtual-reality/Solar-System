@@ -59,6 +59,8 @@ Display warns if a planet is in close proximity and the information related to t
 
 Display shows current speed and in reference to the speed of light. 
 
+*Game controls can be seen on monitors at the back of the spaceship*
+
 ## Information for Particular Project Aspects
 ### Starry Sky Creation
 Created By: Viet Than

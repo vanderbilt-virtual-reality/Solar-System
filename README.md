@@ -15,7 +15,7 @@
 
 To access our Trello board: <a href="https://trello.com/invite/b/dn2gKOlD/d1af0289d0a9df8f983986a54db01d8b/solar-system-simulation">Link</a>
 ## Game Controls
-Right Controller: 
+### Right Controller: 
 
 Thumbstick Up: Accelerate Ship 
 
@@ -24,6 +24,25 @@ Thumbstick Down: Decelerate Ship
 Press A: Reset speed to 1 m/s
 
 Press B: Revert to Original Speed
+
+### Left Controller: 
+Thumbstick Up: Move Ship Forward 
+
+Thumbstick Down: Move Ship Backwards 
+
+### Dashboard Capabilities: 
+Left Side Dashboard- 3D Map: 
+
+Map shows planet Location in real time and spaceship position in the solar system. Toggle a planet using your index finger to display the planet tracker. Touch the planet again to deactivate the planet tracker. Tracker displays Planet location, ETA, distance, and name.  Multiple trackers can be activated at a time. 
+
+Center of Dashboard- Planet Proximity and Information: 
+
+Display warns if a planet is in close proximity and the information related to the respective planet
+
+Right of Dashboard- Speed 
+
+Display shows current speed and in reference to the speed of light. 
+
 ## Information for Particular Project Aspects
 ### Starry Sky Creation
 Created By: Viet Than

@@ -51,18 +51,33 @@ Map shows the current positions of the planets and spaceship in the solar system
 
 Highlight a planet using your index finger to point and touch the planet on the planet tracker/mini map. Touch the planet again to deactivate the planet tracker. Highlighting a planet on the planet tracker causes a position marker to appear above the actual planet outside the ship, along with planet name, current distance from planet, and estimate time of arrival to planet at current speed.  Multiple trackers can be activated at a time. 
 
+<p>
+    <img src="Screenshot (2).png" width="800" height="500" />
+</p>
+<p>
+    <img src="Screenshot (3).png" width="800" height="500" />
+</p>
+
 **Center of Dashboard- Planet Proximity and Information:**
 
 Display warns if a planet is in close proximity and the information related to the respective planet. The type of information displayed is the planet's average distance from the sun, radius, number of moons and/or rings, as well as type of planet (i.e. Terrestrial, Gas Giant, Ice Giant)
+<p>
+    <img src="Screenshot (5).png" width="800" height="500" />
+</p>
 
 **Right of Dashboard-Speed:**
 
-Display shows current speed and in reference to the speed of light. 
+Display shows current speed in meters per second and in multiples of the speed of light. 
+<p>
+    <img src="Screenshot (4).png" width="800" height="500" />
+</p>
 
 ### Back Monitors
 Behind the player is a set of computer monitors that display the instructions of the game for the player to reference during the game.
 
-![Back Monitor](/Screenshot-(6).png)
+<p>
+    <img src="Screenshot (6).png" width="800" height="500" />
+</p>
 
 ### Troubleshooting and FAQ
 **Planets aren't highlighting on mimi map when I touch them**
@@ -84,6 +99,9 @@ If you look at the mini map, there is a small red cone. This represents your cur
 **Why is baby Yoda here?**
 
 Because why not. He's cute.
+<p>
+    <img src="Screenshot (7).png" width="800" height="500" />
+</p>
 
 **General Gameplay Tips?**
 

@@ -1,20 +1,40 @@
 # Solar System Simulation
 
 <p align="left">
-	<img src="https://img.shields.io/badge/platform-Unity-blueviolet?style=for-the-badge"
+	<img src="https://img.shields.io/badge/platform-Unity 2019.2.6f1-blueviolet?style=for-the-badge"
 			 alt="platform">
-  <img src="https://img.shields.io/badge/OS-Windows-0078d7?style=for-the-badge"
+	<img src="https://img.shields.io/badge/OS-Windows-0078d7?style=for-the-badge"
 			 alt="platform">
-  <img src="https://img.shields.io/badge/OS-Mac-red?style=for-the-badge"
+	<img src="https://img.shields.io/badge/OS-Mac-red?style=for-the-badge"
 			 alt="platform">
 	<img src="https://img.shields.io/badge/language-Csharp-brightgreen?style=for-the-badge"
 			 alt="language">
+	<img src="https://img.shields.io/badge/VR-Oculus Rift 1.43-important?style=for-the-badge"
+			 alt="vr">
 </p>
 
-### Versions
-Unity Version 2019.2.6f1
+Table of Contents
+=================
 
-Oculus Version 1.43
+   * [Solar System Simulation](#solar-system-simulation)
+      * [About This Game](#about-this-game)
+      * [Game Controls](#game-controls)
+         * [Right Controller:](#right-controller)
+         * [Left Controller:](#left-controller)
+         * [Dashboard Capabilities:](#dashboard-capabilities)
+         * [Back Monitors](#back-monitors)
+         * [Troubleshooting and FAQ](#troubleshooting-and-faq)
+      * [Information for Particular Project Aspects](#information-for-particular-project-aspects)
+         * [Starry Sky Creation](#starry-sky-creation)
+         * [Audio](#audio)
+      * [Sources, Assets and Relevant Links](#sources-assets-and-relevant-links)
+         * [Trello](#trello)
+         * [Data/Information Resources](#datainformation-resources)
+         * [Unity Assets](#unity-assets)
+         * [External Models](#external-models)
+      * [Author and Acknowledgements](#author-and-acknowledgements)
+
+
 
 ## About This Game
 ![Solar System Simulation Demo](ezgif.com-video-to-gif.gif)

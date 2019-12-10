@@ -17,6 +17,8 @@ Unity Version 2019.2.6f1
 Oculus Version 1.43
 
 ## About This Game
+![Solar System Simulation Demo](ezgif.com-video-to-gif.gif)
+
 This game is a simulation of the Milky Way solar system. Our goal was to create a simulation that focused on the sheer size of the solar system and the time that it would take to travel the distances between planets. While limiting the player to realistic speed would not be an enjoyable experience, we attempted to emphasize the experience of time and distance by keeping a realistic distance, allowing the speed to be extremely unrealistic, and using time to warp the user's experience. The user starts at the sun and is able to pilot their spaceship between Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, and Pluto.
 
 
@@ -46,11 +48,6 @@ Point index finger to activate/deactivate objects on mini map
 
 ### Dashboard Capabilities: 
 **Left Side Dashboard- 3D Mini Map:**
-
-Map shows the current positions of the planets and spaceship in the solar system.
-
-Highlight a planet using your index finger to point and touch the planet on the planet tracker/mini map. Touch the planet again to deactivate the planet tracker. Highlighting a planet on the planet tracker causes a position marker to appear above the actual planet outside the ship, along with planet name, current distance from planet, and estimate time of arrival to planet at current speed.  Multiple trackers can be activated at a time. 
-
 <p>
     <img src="Screenshot (2).png" width="800" height="500" />
 </p>
@@ -58,26 +55,32 @@ Highlight a planet using your index finger to point and touch the planet on the 
     <img src="Screenshot (3).png" width="800" height="500" />
 </p>
 
-**Center of Dashboard- Planet Proximity and Information:**
+Map shows the current positions of the planets and spaceship in the solar system.
 
-Display warns if a planet is in close proximity and the information related to the respective planet. The type of information displayed is the planet's average distance from the sun, radius, number of moons and/or rings, as well as type of planet (i.e. Terrestrial, Gas Giant, Ice Giant)
+Highlight a planet using your index finger to point and touch the planet on the planet tracker/mini map. Touch the planet again to deactivate the planet tracker. Highlighting a planet on the planet tracker causes a position marker to appear above the actual planet outside the ship, along with planet name, current distance from planet, and estimate time of arrival to planet at current speed.  Multiple trackers can be activated at a time. 
+
+**Center of Dashboard- Planet Proximity and Information:**
 <p>
     <img src="Screenshot (5).png" width="800" height="500" />
 </p>
 
-**Right of Dashboard-Speed:**
+Display warns if a planet is in close proximity and the information related to the respective planet. The type of information displayed is the planet's average distance from the sun, radius, number of moons and/or rings, as well as type of planet (i.e. Terrestrial, Gas Giant, Ice Giant)
 
-Display shows current speed in meters per second and in multiples of the speed of light. 
+
+**Right of Dashboard-Speed:**
 <p>
     <img src="Screenshot (4).png" width="800" height="500" />
 </p>
 
-### Back Monitors
-Behind the player is a set of computer monitors that display the instructions of the game for the player to reference during the game.
+Display shows current speed in meters per second and in multiples of the speed of light. 
 
+### Back Monitors
 <p>
     <img src="Screenshot (6).png" width="800" height="500" />
 </p>
+
+Behind the player is a set of computer monitors that display the instructions of the game for the player to reference during the game.
+
 
 ### Troubleshooting and FAQ
 **Planets aren't highlighting on mimi map when I touch them**

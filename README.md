@@ -18,6 +18,7 @@ Oculus Version 1.43
 
 ## About This Game
 ![Solar System Simulation Demo](ezgif.com-video-to-gif.gif)
+![Solar System Simulation Demo](travel-demo.gif)
 
 This game is a simulation of the Milky Way solar system. Our goal was to create a simulation that focused on the sheer size of the solar system and the time that it would take to travel the distances between planets. While limiting the player to realistic speed would not be an enjoyable experience, we attempted to emphasize the experience of time and distance by keeping a realistic distance, allowing the speed to be extremely unrealistic, and using time to warp the user's experience. The user starts at the sun and is able to pilot their spaceship between Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, and Pluto.
 
